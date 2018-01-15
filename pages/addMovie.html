@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add movie</title>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="../models/work1.js"></script>
+        <script type="text/javascript" src="../models/Movie.js"></script>
+        <script type="text/javascript" src="../views/add-movie.js"></script>
+        <link rel="stylesheet" href="../css/index.css" type="text/css" />
+    </head>
+    <body>
+        <div>Add form</div>
+        <form action="https://ancient-caverns-16784.herokuapp.com/movies" method="post" id="addform">
+            <div>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="new_title" value="">
+            </div>
+            <div>
+                <label for="yaer">Year</label>
+                <input type="text" id="year" name="new_year" value="">
+            </div>
+            <div>
+                <label for="runtime">Runtime</label>
+                <input type="text" id="runtime" name="new_runtime" value="">
+            </div>
+            <div>
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" name="new_genre" value="">
+            </div>
+            <div>
+                <label for="language">Language</label>
+                <input type="text" id="language" name="new_language" value="">
+            </div>
+            <div>
+                <label for="country">Country</label>
+                <input type="text" id="country" name="new_country" value="">
+            </div>
+            <div>
+                <label for="poster">Poster</label>
+                <input type="text" id="poster" name="new_poster" value="">
+            </div>
+            <div>
+                <label for="imdbrating">imdbRating</label>
+                <input type="text" id="imdbrating" name="new_imdbrating" value="">
+            </div>
+            <div>
+                <label for="imdbvotes">imdbVotes</label>
+                <input type="text" id="imdbvotes" name="new_imdbvotes" value="">
+            </div>
+            <div>
+                <label for="imdbid">imdbId</label>
+                <input type="text" id="imdbid" name="new_imdbid" value="">
+            </div>
+            <div>
+                <label for="typem">Type</label>
+                <input type="text" id="typem" name="new_typem">
+            </div>
+            <div class="button">
+                <button class="button" type="submit" id="addm">Add movie</button>
+              </div>
+            
+            
+
+        </form>
+        <div id="des">
+
+        </div>
+    </body>
+</html>
