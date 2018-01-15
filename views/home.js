@@ -10,6 +10,7 @@ function onHtmlLoaded() {
     
     movieList.getMovies().then(displayMovie);
     var content = document.getElementById('container');
+   
     
     function displayMovie() {
 
@@ -18,6 +19,7 @@ function onHtmlLoaded() {
             
             var movieItem = document.createElement("section");
                movieItem.setAttribute('class', 'flex-container');
+               movieItem.id=movieList.model[i].id;
             
             var moviePoster = document.createElement('img');
                 moviePoster.setAttribute('src', movieList.model[i].poster );
@@ -28,6 +30,21 @@ function onHtmlLoaded() {
                 movieTitle.setAttribute('href', 'movieDetails.html?movieId=' + movieList.model[i].id);
                 movieTitle.setAttribute('target', '_blank');
                 
+            var editButton = document.createElement('button');
+                editButton.setAttribute("edit","edit-movie");
+                editButton.innerHTML = 'Edit';
+                editButton.addEventListener("click",function(e){
+                    console.log('sdasda',e);
+                    console.log("id", e.path[1].id);
+                    window.open('editMovie.html?movieId=' + e.path[1].id);
+                });
+                
+            var deleteButton = document.createElement('button');
+                deleteButton.setAttribute("delete","delete-movie");
+                deleteButton.innerHTML = 'Delete';
+                
+            
+                
                 // console.log(movieList.model[i].id);
                 
             // var movieYear = document.createElement('p');
@@ -36,9 +53,12 @@ function onHtmlLoaded() {
             // var movieimdbRating = document.createElement('span');
             //     movieimdbRating.innerHTML = movieList.model[i].imdbRating;
                 
-            content.appendChild(movieItem);
+            
             movieItem.appendChild(moviePoster);
             movieItem.appendChild(movieTitle);
+            movieItem.appendChild(editButton);
+            movieItem.appendChild(deleteButton);
+            content.appendChild(movieItem);
             // movieItem.appendChild(movieYear);
             // movieItem.appendChild(movieimdbRating);
          
