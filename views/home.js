@@ -8,6 +8,11 @@ function onHtmlLoaded() {
     
     console.log(movieList);
     
+    var addMovie = document.getElementById('add-movie');
+        addMovie.addEventListener('click', function(){
+           console.log('Olga'); 
+        });
+    
     movieList.getMovies().then(displayMovie);
     var content = document.getElementById('container');
    
