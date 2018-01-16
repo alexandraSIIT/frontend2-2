@@ -4,7 +4,7 @@ class Validate {
     static validateLogin (userName, password) {
         return ((userName.length > 1 && password.length > 1) &&
             (userName.indexOf(" ") == -1 && password.indexOf(" ") == -1)) ? true : false;
-    };
+    }
 
     //false if any field breaks the rules ;)
     static validateUserRegistration(userName, password, confirmPassword) {
@@ -15,5 +15,5 @@ class Validate {
                 password.indexOf(" ") == -1 && 
                 confirmPassword.indexOf(" ") == -1) &&
                (password === confirmPassword)) ? true : false;
-    };
+    }
 }

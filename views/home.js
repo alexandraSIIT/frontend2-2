@@ -1,4 +1,4 @@
-/* global $ MoviesList */
+/* global $ MoviesList Cookie Auth*/
 
 $(document).ready(onHtmlLoaded);
 
@@ -11,7 +11,30 @@ function onHtmlLoaded() {
     var addMovie = document.getElementById('add-movie');
         addMovie.addEventListener('click', function(){
            console.log('Olga'); 
-        });
+    });
+    
+    $('#logout').click( () => {
+        
+        //first we check to see if the user is actualy logged
+        const isUserLogged = Cookie.findLoggedUser();        
+        
+        if (isUserLogged) {
+            Auth.logOutUser(isUserLogged)
+                .then( () => {
+                    Cookie.deleteTokenCookie();
+                    window.location.href = 'home.html';
+                })
+                .catch(reason => {console.log(reason)});
+        }
+        else {
+            alert('You are not logged in');
+        }
+        
+    });
+    
+    $('#login').click( () => {
+        window.location.href = 'login.html';
+    });
     
     movieList.getMovies().then(displayMovie);
     var content = document.getElementById('container');

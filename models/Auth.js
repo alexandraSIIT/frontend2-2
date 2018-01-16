@@ -1,3 +1,4 @@
+/* global $*/
 class Auth {
     // sends login info to backend and returns : token if user is found, or error if user does not exist
     static sendCredentials(userName, password) {
@@ -9,11 +10,10 @@ class Auth {
             method:'POST',
             data
         });
-    };
+    }
 
     //sends the token to backend for log out;
     static logOutUser(token) {
-        
         return $.ajax(Auth.logOutUrl, {
             method:'GET',
             headers:{ 'X-Auth-Token': `${token}` }

@@ -1,4 +1,4 @@
-/* global Login $ */
+/* global $ Cookie Auth Validate */
 $(document).ready( function() {
     $("#submitButton").click(function(){
         event.preventDefault();
