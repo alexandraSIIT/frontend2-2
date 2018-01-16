@@ -6,27 +6,18 @@ $(document).ready( function() {
         const userName     = $("#userName").val();
         const userPassword = $("#userPassword").val();
 
-        const loginSession = new Login();
-
         //input fields should not be empty
-        if (validateCredentials(userName, userPassword)) {
-            loginSession.sendCredentials(userName, userPassword)
+        if (Validate.validateLogin(userName, userPassword)) {
+            Auth.sendCredentials(userName, userPassword)
                 .then(data => {
-                    setCookie(userName, data.accessToken);
-                    //more stuff here 
+                    Cookie.setCookie(userName, data.accessToken);
+                    window.location.href = 'home.html'; 
                 })
-                .catch(reason => {console.log(reason.responseText)});
+                .catch(reason => {alert(reason.responseText)}); //write some message in page instead of alert
+        }       
+        else {
+            alert("Login Error!");
+            //write some message in page instead of alert
         }
-        else {alert("fields must be filled!");}
     });
 });
-
-//return true if username & password fields are filled or false if at least one is not filled
-function validateCredentials(userName, password) {
-    return (userName !== "" && password !== "") ? true : false;
-}
-
-function setCookie(userName, token) {
-    document.cookie = `loggedUser=${userName}`;
-    document.cookie = `loggedUserToken=${token}`;
-}
