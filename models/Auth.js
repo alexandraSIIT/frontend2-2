@@ -1,7 +1,7 @@
 /* global $*/
 class Auth {
     // sends login info to backend and returns : token if user is found, or error if user does not exist
-    static sendCredentials(userName, password) {
+    static logInUser(userName, password) {
         const data = {
             username:userName,
             password:password
