@@ -1,117 +1,188 @@
-html ,body {
-    background-color: #cccccc;
-    height: 100%;
+* {
+    box-sizing: border-box;
+    font-family: Georgia, serif;;
 }
+
+html, body {
+    background: linear-gradient(lightgrey, white);
+}
+
 
 /* header */
 
 header {
-    background-color: #191919;
+    background-color: #343a40;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: center;
+}
+
+.imgLogo {
+    max-width: 100%;
+    height: auto;
+    background-color:#f8f8f2;
+    box-shadow: 2px 3px 2px rgb(65, 63, 63);
+    border-radius:18px;
+    padding: 5px;
+    margin: 3px 10px 3px 3px;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Search */
+.input-group-addon {
+   border: none;
+}
+
+.glyphicon-search {
+    border: none;
 }
 
 /* Content */
 
 #movieDisplay {
     background-color: white;
-    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.poster-title {
+    display: flex;
+    flex-direction: row;
+}
+
+.poster {
+    width: 60%;
+}
+
+.title {
+    width: 40%;
+    text-align: center;
+}
+
+.img-movie {
+    width: 140px;
+    height: 220px;
+}
+
+.button-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+    
 }
 
 
 .flex-container {
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    width: 48.5%;
     padding: 25px;
-    margin-top: 5px;
-    border: 2px solid black;
+    margin: 5px;
+    margin-top: 15px;
+    background-color: #f2f2f2;
+    border-radius: 15px;
 }
 
 a {
-    padding: 20px;
-    padding-left: 40px;
-    color: #136CB2;
+    color: #5a5a5a;
     text-decoration: none;
     cursor: pointer;
-    font-size: 13px;
-}
-
-img {
-    width: 45px;
-    height: 70px;
-}
-
-h1 {
-    color: #424242;
-    font-size: 25px;
-    margin-left: 15px;
-}
-
-h3 {
-    font-size: 12px;
-    color: #666;
-    font-weight: normal;
-    margin-left: 15px;
-}
-
-.img-responsive {
-    width: 135px;
-    height: 75px;
-    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
 }
 
 p {
-    color: #424242;
-    font-size: 20px;
-    margin-top: 15px;
+    color: #5a5a5a;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px;
 }
+
+i {
+    color: #ccaf00;
+}
+
+
+.img-responsive {
+    width: 210px;
+    height: 92px;
+    margin-left: 15px;
+    border-radius: 7px;
+}
+
 
 /* Buttons */
 
 #add-movie {
-    background-color: #0099ff;
+    background-color: #5a5a5a;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin-left: 15px;
     margin-right: 10px;
-    margin-bottom: 5px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 #add-movie:hover {
-    background-color: blue;
+    background-color: #337ab7;
     color: white; 
 }
 
 #logout {
-    background-color: #0099ff;
+    background-color: #5a5a5a;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
 }
 
 #logout:hover {
-    background-color: blue; 
+    background-color: #337ab7; 
 }
 
 #login {
-    background-color: #0099ff;
+    background-color: #5a5a5a;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 5px 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 16px;
     margin-right: 10px;
     cursor: pointer;
@@ -119,43 +190,42 @@ p {
 }
 
 #login:hover {
-    background-color: blue;
+    background-color: #337ab7;
 }
 
 #edit {
-    background-color: #0099ff;
+    background-color: #5a5a5a;
     color: white;
     padding: 8px;
     border: none;
-    margin: auto;
     border-radius: 5px;
-    margin-right: 10px;
+    margin-right: 5px;
+    width: 60px;
 }
 
 #edit:hover {
-    background-color: blue;
+    background-color: #337ab7;
     color: white;
 }
 
 #delete {
-    background-color: #0099ff;
+    background-color: #5a5a5a;
     color: white;
     padding: 8px;
     border: none;
-    margin: auto;
-    margin-right: 60px;
     border-radius: 5px;
+    width: 60px;
 }
 
 #delete:hover {
-    background-color: blue;
+    background-color: #337ab7;
     color: white;
 }
 
 /* Footer */
 
 .footer {
-    background-color: #191919;
+    background-color: #343a40;
     color: white;
     font-size: 15px;
     padding: 15px;

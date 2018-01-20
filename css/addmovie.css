@@ -13,31 +13,147 @@ body {
   background-color: #1d1b1b;
 }
 
-header{
-  position: relative;
-  margin: 10px;
-  padding: 5px;
-  background-color:#660000;
-  border-radius: 7px;
-  margin-bottom: 30px;
-  border: 4px solid rgba(129, 125, 125, 0.5);
+header {
+    background-color: #343a40;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 50px;
+    position: relative;
 }
 
-.imgLogo{
- 
-  max-width: 100%;
-  height: auto;
-  background-color:#f8f8f2;
-  box-shadow: 2px 3px 2px rgb(65, 63, 63);
-  border-radius:15px;
-  padding: 5px;
-  margin: 3px 10px 3px 3px;
+.logo {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: center;
 }
-@media (min-width: 768px){
-  .imgLogo{
-    margin: 3px 10px 3px 40px;
-  }
+
+.imgLogo {
+    max-width: 100%;
+    height: auto;
+    background-color:#f8f8f2;
+    box-shadow: 2px 3px 2px rgb(65, 63, 63);
+    border-radius:18px;
+    padding: 5px;
+    margin: 3px 10px 3px 3px;
 }
+
+.search {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Search */
+.input-group-addon {
+   border: none;
+}
+
+.glyphicon-search {
+    border: none;
+}
+
+/* Buttons */
+
+#add-movie {
+    background-color: #5a5a5a;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#add-movie:hover {
+    background-color: #337ab7;
+    color: white; 
+}
+
+#logout {
+    background-color: #5a5a5a;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#logout:hover {
+    background-color: #337ab7; 
+}
+
+#login {
+    background-color: #5a5a5a;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login:hover {
+    background-color: #337ab7;
+}
+
+#edit {
+    background-color: #5a5a5a;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 5px;
+    width: 60px;
+}
+
+#edit:hover {
+    background-color: #337ab7;
+    color: white;
+}
+
+#delete {
+    background-color: #5a5a5a;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    width: 60px;
+}
+
+#delete:hover {
+    background-color: #337ab7;
+    color: white;
+}
+
+
+/*@media (min-width: 768px){*/
+/*  .imgLogo{*/
+/*    margin: 3px 10px 3px 40px;*/
+/*  }*/
+/*}*/
 
 
 .formContent{

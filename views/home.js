@@ -1,4 +1,4 @@
-/* global $ MoviesList Cookie Auth*/
+/* global $ MoviesList Movie Cookie Auth*/
 
 $(document).ready(onHtmlLoaded);
 
@@ -12,6 +12,29 @@ function onHtmlLoaded() {
         addMovie.addEventListener('click', function(){
             window.open("addMovie.html");
         });
+        
+    $('#login').click( () => {
+        window.location.href = 'login.html';
+    });
+    
+    $('#logout').click( () => {
+        
+        //first we check to see if the user is actualy logged
+        const isUserLogged = Cookie.findLoggedUser();        
+        
+        if (isUserLogged) {
+            Auth.logOutUser(isUserLogged)
+                .then( () => {
+                    Cookie.deleteTokenCookie();
+                    window.location.href = 'home.html';
+                })
+                .catch(reason => {console.log(reason)});
+        }
+        else {
+            alert('You are not logged in');
+        }
+        
+    });
     
     movieList.getMovies().then(displayMovie);
     var content = document.getElementById('movieDisplay');
@@ -26,15 +49,31 @@ function onHtmlLoaded() {
                movieItem.setAttribute('class', 'flex-container');
                movieItem.id=movieList.model[i].id;
             
+            var divPosterTitle = document.createElement('div');
+                divPosterTitle.className = 'poster-title';
+                
+            var divPoster = document.createElement('div');
+                divPoster.className = 'poster';
             var moviePoster = document.createElement('img');
                 moviePoster.setAttribute('src', movieList.model[i].poster );
+                moviePoster.className = 'img-movie';
                 moviePoster.innerHTML = movieList.model[i].poster;
-                
+            
+            var divTitle = document.createElement('div');
+                divTitle.className = 'title';
             var movieTitle = document.createElement('a');
                 movieTitle.innerHTML = movieList.model[i].title;
                 movieTitle.setAttribute('href', 'movieDetails.html?movieId=' + movieList.model[i].id);
                 movieTitle.setAttribute('target', '_blank');
+            
+            var movieYear = document.createElement('p');
+                movieYear.innerHTML = "<span>Year:</span> " + movieList.model[i].year;
                 
+            var movieimdbRating = document.createElement('p');
+                movieimdbRating.innerHTML ='<span>Raiting:</span> '  + movieList.model[i].imdbRating + ' <i class="fa fa-star fa-2x" aria-hidden="true"></i>';
+            
+            var divButton = document.createElement('div');
+                divButton.className = 'button-content';
             var editButton = document.createElement('button');
                 editButton.setAttribute("edit","edit-movie");
                 editButton.setAttribute('id', 'edit');
@@ -52,17 +91,22 @@ function onHtmlLoaded() {
                     console.log(e.path[1].id);
                     
                        delMovie.deleteMovie(e.path[1].id).then(deleteMovieItem(e)).catch(function(err){
-                        alert("olga nu ai facut bine")
-                    })
+                        alert("olga nu ai facut bine");
+                    });
 
-                })
+                });
                 
                 
-            
-            movieItem.appendChild(moviePoster);
-            movieItem.appendChild(movieTitle);
-            movieItem.appendChild(editButton);
-            movieItem.appendChild(deleteButton);
+            divPoster.appendChild(moviePoster);
+            divTitle.appendChild(movieTitle);
+            divTitle.appendChild(movieYear);
+            divTitle.appendChild(movieimdbRating);
+            divPosterTitle.appendChild(divPoster);
+            divPosterTitle.appendChild(divTitle);
+            divButton.appendChild(editButton);
+            divButton.appendChild(deleteButton);
+            movieItem.appendChild(divPosterTitle);
+            movieItem.appendChild(divButton);
             content.appendChild(movieItem);
             // movieItem.appendChild(movieYear);
             // movieItem.appendChild(movieimdbRating);
