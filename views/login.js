@@ -23,7 +23,7 @@ $(document).ready( function() {
 
 //return true if username & password fields are filled or false if at least one is not filled
 function validateCredentials(userName, password) {
-    return (userName !== "" && password !== "") ? true : false;
+  return (userName !== "" && password !== "") ? true : false;
 }
 
 function setCookie(userName, token) {

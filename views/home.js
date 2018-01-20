@@ -2,15 +2,15 @@
 
 $(document).ready(onHtmlLoaded);
 
+
 function onHtmlLoaded() {
     
     var movieList = new MoviesList();
-    
-    console.log(movieList);
+    var delMovie = new Movie();
     
     var addMovie = document.getElementById('add-movie');
         addMovie.addEventListener('click', function(){
-           console.log('Olga'); 
+            window.open("addMovie.html");
         });
     
     movieList.getMovies().then(displayMovie);
@@ -39,24 +39,22 @@ function onHtmlLoaded() {
                 editButton.setAttribute("edit","edit-movie");
                 editButton.innerHTML = 'Edit';
                 editButton.addEventListener("click",function(e){
-                    console.log('sdasda',e);
-                    console.log("id", e.path[1].id);
+                   
                     window.open('editMovie.html?movieId=' + e.path[1].id);
                 });
                 
             var deleteButton = document.createElement('button');
                 deleteButton.setAttribute("delete","delete-movie");
                 deleteButton.innerHTML = 'Delete';
+                deleteButton.addEventListener("click",function(e){
+                    console.log(e.path[1].id);
+                    
+                       delMovie.deleteMovie(e.path[1].id).then(deleteMovieItem(e)).catch(function(err){
+                        alert("olga nu ai facut bine")
+                    })
+
+                })
                 
-            
-                
-                // console.log(movieList.model[i].id);
-                
-            // var movieYear = document.createElement('p');
-            //     movieYear.innerHTML = movieList.model[i].year;
-                
-            // var movieimdbRating = document.createElement('span');
-            //     movieimdbRating.innerHTML = movieList.model[i].imdbRating;
                 
             
             movieItem.appendChild(moviePoster);
@@ -73,3 +71,7 @@ function onHtmlLoaded() {
     }
     
 }
+ function deleteMovieItem(e){
+     e.path[1].remove();
+
+ }
