@@ -1,4 +1,4 @@
-/* global $ MoviesList */
+/* global $ MoviesList Cookie Auth*/
 
 $(document).ready(onHtmlLoaded);
 
@@ -37,6 +37,7 @@ function onHtmlLoaded() {
                 
             var editButton = document.createElement('button');
                 editButton.setAttribute("edit","edit-movie");
+                editButton.setAttribute('id', 'edit');
                 editButton.innerHTML = 'Edit';
                 editButton.addEventListener("click",function(e){
                    
@@ -45,6 +46,7 @@ function onHtmlLoaded() {
                 
             var deleteButton = document.createElement('button');
                 deleteButton.setAttribute("delete","delete-movie");
+                deleteButton.setAttribute('id', 'delete');
                 deleteButton.innerHTML = 'Delete';
                 deleteButton.addEventListener("click",function(e){
                     console.log(e.path[1].id);

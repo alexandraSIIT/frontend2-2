@@ -1,23 +1,23 @@
-/* global Login $ */
+/* global $ Cookie Auth Validate */
 $(document).ready( function() {
-    $("#submitButton").click(function(){
+    $("#submitButton").click( function(){
         event.preventDefault();
 
-        const userName     = $("#userName").val();
-        const userPassword = $("#userPassword").val();
-
-        const loginSession = new Login();
+        const userName     = $("#userName").val(),
+              userPassword = $("#userPassword").val();
 
         //input fields should not be empty
-        if (validateCredentials(userName, userPassword)) {
-            loginSession.sendCredentials(userName, userPassword)
+        if (Validate.validateLogin(userName, userPassword)) {
+            Auth.logInUser(userName, userPassword)
                 .then(data => {
-                    setCookie(userName, data.accessToken);
-                    //more stuff here 
+                    Cookie.setCookie(userName, data.accessToken);
+                    window.location.href = 'home.html'; 
                 })
-                .catch(reason => {console.log(reason.responseText)});
+                .catch(reason => {appendError(reason.responseJSON.message)}); 
+        }       
+        else {
+            appendError('Login Error');
         }
-        else {alert("fields must be filled!");}
     });
 });
 
@@ -26,7 +26,19 @@ function validateCredentials(userName, password) {
   return (userName !== "" && password !== "") ? true : false;
 }
 
-function setCookie(userName, token) {
-    document.cookie = `loggedUser=${userName}`;
-    document.cookie = `loggedUserToken=${token}`;
+function appendError(errorText) {
+    
+    const errorElement = document.getElementById("error");
+    
+    if (!errorElement) {
+        const newError = document.createElement('p');
+        newError.setAttribute('id', 'error');
+        newError.innerHTML = errorText;
+        document.getElementById('root').appendChild(newError);
+    }
+    
+    else {
+        errorElement.innerHTML = errorText;    
+    }
+   
 }
