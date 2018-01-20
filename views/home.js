@@ -14,7 +14,7 @@ function onHtmlLoaded() {
         });
     
     movieList.getMovies().then(displayMovie);
-    var content = document.getElementById('container');
+    var content = document.getElementById('movieDisplay');
    
     
     function displayMovie() {
