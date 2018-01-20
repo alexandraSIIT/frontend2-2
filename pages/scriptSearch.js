@@ -14,10 +14,10 @@ $(document).ready (function (){
         $.ajax({
             url: movieUrl + "/movies?" +  searchBy + "=" + searchData,
             method: 'GET'
-        }).then(dislayResultsList)
+        }).then(displayResultsList)
     });
-    
-    function dislayResultsList (response){
+
+    function displayResultsList(response) {
         const resultsContainer = $('#resultsContainer');
         for(var i=0; i<response.results.length; i++){
             let movieFound = response.results[i];
@@ -28,8 +28,8 @@ $(document).ready (function (){
                                 '</div>';
         resultsContainer.append(htmlMovieItem);
         }
+    }
     
-    };
 
     
     $('#checkBox').click( function() {
