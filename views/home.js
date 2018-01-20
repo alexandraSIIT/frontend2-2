@@ -2,42 +2,19 @@
 
 $(document).ready(onHtmlLoaded);
 
+
 function onHtmlLoaded() {
     
     var movieList = new MoviesList();
-    
-    console.log(movieList);
+    var delMovie = new Movie();
     
     var addMovie = document.getElementById('add-movie');
         addMovie.addEventListener('click', function(){
-           console.log('Olga'); 
-    });
-    
-    $('#logout').click( () => {
-        
-        //first we check to see if the user is actualy logged
-        const isUserLogged = Cookie.findLoggedUser();        
-        
-        if (isUserLogged) {
-            Auth.logOutUser(isUserLogged)
-                .then( () => {
-                    Cookie.deleteTokenCookie();
-                    window.location.href = 'home.html';
-                })
-                .catch(reason => {console.log(reason)});
-        }
-        else {
-            alert('You are not logged in');
-        }
-        
-    });
-    
-    $('#login').click( () => {
-        window.location.href = 'login.html';
-    });
+            window.open("addMovie.html");
+        });
     
     movieList.getMovies().then(displayMovie);
-    var content = document.getElementById('container');
+    var content = document.getElementById('movieDisplay');
    
     
     function displayMovie() {
@@ -63,8 +40,7 @@ function onHtmlLoaded() {
                 editButton.setAttribute('id', 'edit');
                 editButton.innerHTML = 'Edit';
                 editButton.addEventListener("click",function(e){
-                    console.log('sdasda',e);
-                    console.log("id", e.path[1].id);
+                   
                     window.open('editMovie.html?movieId=' + e.path[1].id);
                 });
                 
@@ -72,16 +48,15 @@ function onHtmlLoaded() {
                 deleteButton.setAttribute("delete","delete-movie");
                 deleteButton.setAttribute('id', 'delete');
                 deleteButton.innerHTML = 'Delete';
+                deleteButton.addEventListener("click",function(e){
+                    console.log(e.path[1].id);
+                    
+                       delMovie.deleteMovie(e.path[1].id).then(deleteMovieItem(e)).catch(function(err){
+                        alert("olga nu ai facut bine")
+                    })
+
+                })
                 
-            
-                
-                // console.log(movieList.model[i].id);
-                
-            // var movieYear = document.createElement('p');
-            //     movieYear.innerHTML = movieList.model[i].year;
-                
-            // var movieimdbRating = document.createElement('span');
-            //     movieimdbRating.innerHTML = movieList.model[i].imdbRating;
                 
             
             movieItem.appendChild(moviePoster);
@@ -98,3 +73,7 @@ function onHtmlLoaded() {
     }
     
 }
+ function deleteMovieItem(e){
+     e.path[1].remove();
+
+ }
