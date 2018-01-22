@@ -132,6 +132,9 @@ function onHtmlLoaded() {
  }
  
  function checkLoginStatus() {
-     const isUserLogged = Cookie.findLoggedUserName(); 
-     console.log(isUserLogged);
+     const userLogged = Cookie.findLoggedUserName(); 
+     if(userLogged) {
+         document.getElementById('user-name').innerHTML = "Hi, " + userLogged + "!";
+     } 
+
  }
