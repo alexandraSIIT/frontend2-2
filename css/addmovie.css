@@ -10,157 +10,311 @@ html {
 }
 
 body {
-  background-color: #1d1b1b;
-}
-
-header {
-    background-color: #343a40;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.logo {
-    display: flex;
-    flex-direction: row;
-    width: 20%;
-    justify-content: center;
-}
-
-.imgLogo {
-    max-width: 100%;
-    height: auto;
-    background-color:#f8f8f2;
-    box-shadow: 2px 3px 2px rgb(65, 63, 63);
-    border-radius:18px;
-    padding: 5px;
-    margin: 3px 10px 3px 3px;
-}
-
-.search {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav-buttons {
-    display: flex;
-    flex-direction: row;
-    width: 20%;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Search */
-.input-group-addon {
-   border: none;
-}
-
-.glyphicon-search {
-    border: none;
-}
-
-/* Buttons */
-
-#add-movie {
-    background-color: #5a5a5a;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin-left: 15px;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#add-movie:hover {
-    background-color: #337ab7;
-    color: white; 
-}
-
-#logout {
-    background-color: #5a5a5a;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#logout:hover {
-    background-color: #337ab7; 
-}
-
-#login {
-    background-color: #5a5a5a;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-#login:hover {
-    background-color: #337ab7;
-}
-
-#edit {
-    background-color: #5a5a5a;
-    color: white;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 5px;
-    width: 60px;
-}
-
-#edit:hover {
-    background-color: #337ab7;
-    color: white;
-}
-
-#delete {
-    background-color: #5a5a5a;
-    color: white;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    width: 60px;
-}
-
-#delete:hover {
-    background-color: #337ab7;
-    color: white;
+  background: linear-gradient(lightgrey, white);
 }
 
 
-/*@media (min-width: 768px){*/
-/*  .imgLogo{*/
-/*    margin: 3px 10px 3px 40px;*/
-/*  }*/
-/*}*/
+    
+    /* header */
+    
+    header {
+      background-color: #343a40;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5px;
+      position: relative;
+  }
+  @media(min-width:768px){
+      header {
+          background-color: #343a40;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        
+      }
+  }
+  /* logo image */
+  
+  .logo {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      justify-content:space-between;
+      align-items: center;
+      position: relative;
+      padding: 10px;
+      
+  }
+  
+  @media(min-width:768px){
+      .logo{
+        width: 25%;
+        margin-left: 20px;
+     
+      }
+  }
+  @media(min-width:1024px){
+      .logo{
+          width: 20%;
+      }
+  }
+  
+  .imgLogo {
+      max-width: 100%;
+      height: auto;
+      background-color:#f8f8f2;
+      box-shadow: 2px 3px 2px rgb(65, 63, 63);
+      border-radius:18px;
+      padding: 3px;
+      margin: 3px 10px 3px 3px;
+  }
+
+      /* Toggle-icon */
+  
+  .toggle-icon{
+          display: flex;
+          flex-direction: row;
+         
+          margin-right: 10px;
+          display:block;
+          }
+  
+          
+  @media(min-width:768px){
+          .toggle-icon{
+              display: none;
+          }
+  }
+  .fa-bars{
+              color:rgb(196, 193, 193);
+          }
+  
+  /* Nav bar */
+ 
+  .nav-bar{
+      display:none;
+      position: relative;
+      width: 100%;
+      background-color: rgb(236, 232, 232);
+     
+      }
+  .nav-bar-show{
+    display: block;
+  }
+  
+   @media(min-width: 768px){
+       .nav-bar{
+          
+              background-color:inherit;
+              position: relative;
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items:center;
+              width: 70%; 
+              
+           } 
+     }
+   @media(min-width:1024px){
+         .nav-bar{
+          width: 80%;  
+          
+         }
+     }
+  
+  
+  /* Search */
+  
+  .search { 
+      display: flex;
+      flex-direction: row;
+     
+      width: 100%;
+  
+      align-items: center; 
+    
+     
+  }
+  
+  .input-group-addon {
+      border: none;
+   }
+   
+   .glyphicon-search {
+       border: none;
+   }
+  
+  @media(min-width:768px){
+      .search{
+         width: 58%; 
+       
+       
+      }
+  
+  }
+  
+  @media(min-width:1024px){
+      .search{
+         width: 60%; 
+         margin-left: 50px;
+         
+      }
+  
+  }
+  
+  
+  /* Nav buttons div */
+  .nav-buttons{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+  
+  }
+  
+  @media(min-width:768px){
+   .nav-buttons {
+      display: flex;
+      flex-direction: row;
+      width:40%;
+      justify-content: center;
+      align-items: center;
+      
+    
+  } 
+  }
+  @media(min-width:1024px){
+      .nav-buttons {
+       
+         width:31%;
+         justify-content:flex-end;
+         margin-right: 10px;
+     
+     } 
+     }
+   
+  /* Nav buttons */
+  #add-movie {
+      background-color: #5a5a5a;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 2px;
+      margin: 1px;
+      height: 40px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  @media(min-width:768px){
+      #add-movie {
+          width:auto;
+          height: auto;
+          font-size: 14px;
+          padding: 2px 5px;
+          margin-left: 5px;
+          margin-right: 5px;
+      }
+  }
+  
+  @media(min-width:1024px){
+      #add-movie {
+        
+          font-size: 17px;
+  
+         }
+      }
+  
+  #add-movie:hover {
+      background-color: #337ab7;
+      color: white; 
+  }
+  
+  #login {
+      background-color: #5a5a5a;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 2px;
+      margin: 1px;
+      height: 40px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  
+  @media(min-width:768px){
+      #login {
+          width: auto;
+          font-size: 14px;
+          height: auto;
+          padding: 2px 5px;
+          margin-right: 5px; 
+  
+      }
+  }
+  @media(min-width:1024px){
+      #login {
+        
+          font-size: 17px;
+         }
+  
+      }
+  #login:hover {
+      background-color: #337ab7;
+  }
+  
+  
+  #logout {
+      background-color: #5a5a5a;
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 2px;
+      margin: 1px;
+      height: 40px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+  }
+  @media(min-width:768px){
+      #logout{
+          width:auto;
+          font-size: 14px;
+          height: auto;
+          padding: 2px 5px;
+          margin-right: 5px;
+          
+      }
+  }
+  @media(min-width:1024px){
+      #logout {
+        
+          font-size: 17px;
+         }
+      }
+  
+  #logout:hover {
+      background-color: #337ab7; 
+  }
+  
+  
+/* content */
 
 
 .formContent{
   background-color: whitesmoke;
   margin: 0 auto;
-  border: 4px solid rgba(129, 125, 125, 0.5);
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+  margin-top: 40px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
   width: 90%;
   padding: 10px;
   position: relative;
@@ -480,6 +634,13 @@ label{
   width: 80%;
 }
 
+.footer {
+  background-color: #343a40;
+  color: white;
+  font-size: 15px;
+  padding: 15px;
+  margin-top: 30px;
+}
  
  @media (min-width:768px){ 
 

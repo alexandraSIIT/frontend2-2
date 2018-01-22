@@ -1,5 +1,12 @@
-$(document).ready(onHtmlLoaded);
+ $(document).ready(onHtmlLoaded);
 function onHtmlLoaded(){
+
+    //  function for toggle nav-bar
+  const togglebtn=$(".toggle-icon")
+   togglebtn.on("click", function(){
+           $("#toggle-nav").toggleClass("nav-bar-show")
+   
+       }) 
     const addMovie=new Movie();
     const token="09pzCOnnXwyx8VlM-rriX2c5mGZssJ9z";
     const formContent=document.getElementById("addform");

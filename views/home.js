@@ -4,6 +4,13 @@ $(document).ready(onHtmlLoaded);
 
 
 function onHtmlLoaded() {
+
+    //function for toggle nav-bar
+    var togglebtn=$(".toggle-icon")
+    togglebtn.on("click", function(){
+        $("#toggle-nav").toggleClass("nav-bar-show")
+
+    })
     
     var movieList = new MoviesList();
     var delMovie = new Movie();
@@ -80,7 +87,7 @@ function onHtmlLoaded() {
                 editButton.innerHTML = 'Edit';
                 editButton.addEventListener("click",function(e){
                    
-                    window.open('editMovie.html?movieId=' + e.path[1].id);
+                    window.open('editMovie.html?movieId=' + e.path[2].id);
                 });
                 
             var deleteButton = document.createElement('button');
@@ -88,9 +95,9 @@ function onHtmlLoaded() {
                 deleteButton.setAttribute('id', 'delete');
                 deleteButton.innerHTML = 'Delete';
                 deleteButton.addEventListener("click",function(e){
-                    console.log(e.path[1].id);
+                    console.log(e.path[2].id);
                     
-                       delMovie.deleteMovie(e.path[1].id).then(deleteMovieItem(e)).catch(function(err){
+                       delMovie.deleteMovie(e.path[2].id).then(deleteMovieItem(e)).catch(function(err){
                         alert("olga nu ai facut bine");
                     });
 
@@ -118,6 +125,6 @@ function onHtmlLoaded() {
     
 }
  function deleteMovieItem(e){
-     e.path[1].remove();
+     e.path[2].remove();
 
  }

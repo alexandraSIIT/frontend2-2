@@ -2,12 +2,140 @@
 <html>
     <head>
         <title>Edit movie</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../models/Movie.js"></script>
         <script type="text/javascript" src="../models/Movies.js"></script>
+       
         <script type="text/javascript" src="../views/edit-movie.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/edditmovie.css" type="text/css" />
     </head>
     <body>
+        <header>
+            <div class="logo">
+                <img src="..\pages\resources\logofinal1.1.png" class="imgLogo"></img>
+                 <div class="toggle-icon">
+                 <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
+                 </div>
+            </div>
+                
+                 <div class="nav-bar" id="toggle-nav">
+                 <div class="search">
+                            <div class="input-group stylish-input-group">
+                                <input type="text" class="form-control"  placeholder="Search" >
+                                <span class="input-group-addon">
+                                    <button type="submit">
+                                        <span class="glyphicon glyphicon-search"></span>
+                                    </button>  
+                                </span>
+                            </div>
+                </div>
+                
+                <div class="nav-buttons">
+                    <button id="add-movie">Add movie</button>
+                    <button id="login">Login</button>
+                    <button id="logout">Logout</button>
+                </div>
+            </div>         
+            </header>
+       
+            
+            <div class="formContent">
+                <div id="warningMsg"></div>
+                <div id="successMsg">Your Form was submited with success!</div>
+            <form  id="editform">
+    
+                <div class="firstRow">
+                    <div class="formDiv">
+                        <p id="titleIssues"></p>
+                        <label class="formlabel"  for="title">Title</label>
+                        <input class="formimput" type="text" id="title" name="new_title" value="">
+                       
+                    </div>
+                    <div class="formDiv">
+                        <p id="yearIssues"></p>
+                        <label class="formlabel" for="year">Year</label>
+                        <input class="formimput " type="text" id="year" name="new_year" value="">
+                    </div>
+                </div>
+    
+    
+                <div class="secondRow">
+                    <div class="formDiv">
+                        <p id="runtimeIssues"></p>
+                        <label class="formlabel"  for="runtime">Runtime</label>
+                        <input class="formimput" type="text" id="runtime" name="new_runtime" value="">
+                       
+                    </div>
+                    <div class="formDiv">
+                        <p id="genreIssues"></p>
+                        <label class="formlabel"  for="genre">Genre</label>
+                        <input class="formimput" type="text" id="genre" name="new_genre" value="">
+                       
+                    </div>
+                    <div class="formDiv">
+                        <p id="languageIssues"></p>
+                        <label class="formlabel"  for="language">Language</label>
+                        <input class="formimput" type="text" id="language" name="new_language" value="">
+                        
+                    </div>
+                </div>
+    
+                <div class="thirdRow">
+                    <div class="formDiv">
+                        <p id="countryIssues"></p>
+                        <label class="formlabel"  for="country">Country</label>
+                        <input class="formimput" type="text" id="country" name="new_country" value="">
+                       
+                    </div>
+                    <div class="formDiv">
+                        <p id="posterIssues"></p>
+                        <label class="formlabel"  for="poster">Poster</label>
+                        <input class="formimput" type="text" id="poster" name="new_poster" value="">
+                        
+                    </div>
+                    <div class="formDiv">
+                        <p id="imdbrIssues"></p>
+                        <label class="formlabel"  for="imdbrating">ImdbRating</label>
+                        <input class="formimput" type="text" id="imdbrating" name="new_imdbrating" value="">
+                       
+                    </div>
+                </div>
+    
+                <div class="fourthRow">
+                    <div class="formDiv">
+                        <p id="imdbvIssues"></p>
+                        <label class="formlabel"  for="imdbvotes">ImdbVotes</label>
+                        <input class="formimput " type="text" id="imdbvotes" name="new_imdbvotes" value="">
+                        
+                    </div>
+                    <div class="formDiv">
+                        <p id="imdbIdIssues"></p>
+                        <label class="formlabel"  for="imdbid">ImdbId</label>
+                        <input class="formimput" type="text" id="imdbid" name="new_imdbid" value="">
+                       
+                    </div>
+                    <div class="formDiv">
+                        <p id="typeIssues"></p>
+                        <label class="formlabel"  for="typem">Type</label>
+                        <input class="formimput" type="text" id="typem" name="new_typem">
+                        
+                    </div>
+                </div>
+    
+                <div class="buttonrow">
+                    
+                    <div class="button">
+                        <button class="editbutton" type="submit" id="editm">Edit movie</button>
+                    </div>
+                </div>
+                    
+                    </form>
+            </div>
         
-    </body>
-</html>
+        <div class="col-md-12 text-center footer">Copyright &copy; Blue TEAM 2018: All right reserved! </div>
+      </body>
+    </html>
