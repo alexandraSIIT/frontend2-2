@@ -16,7 +16,7 @@ class Cookie {
         document.cookie = 'loggedUser=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
     
-    static findLoggeedUserName() {
+    static findLoggedUserName() {
     const match = document.cookie.match(new RegExp('loggedUser=([^;]+)'));
         if (match) return match[1];   
     }
