@@ -27,7 +27,7 @@ function onHtmlLoaded() {
     $('#logout').click( () => {
         
         //first we check to see if the user is actualy logged
-        const isUserLogged = Cookie.findLoggedUser();        
+        const isUserLogged = Cookie.findLoggedUserToken();        
         
         if (isUserLogged) {
             Auth.logOutUser(isUserLogged)
@@ -42,6 +42,8 @@ function onHtmlLoaded() {
         }
         
     });
+    
+    checkLoginStatus();
     
     movieList.getMovies().then(displayMovie);
     var content = document.getElementById('movieDisplay');
@@ -126,5 +128,13 @@ function onHtmlLoaded() {
 }
  function deleteMovieItem(e){
      e.path[2].remove();
+
+ }
+ 
+ function checkLoginStatus() {
+     const userLogged = Cookie.findLoggedUserName(); 
+     if(userLogged) {
+         document.getElementById('user-name').innerHTML = "Hi, " + userLogged + "!";
+     } 
 
  }

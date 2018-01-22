@@ -301,6 +301,13 @@ html, body {
         background-color: #337ab7; 
     }
     
+/* Display user name */
+
+#user-name {
+    text-transform: uppercase;
+    color: white;
+}
+    
 
 /* Content */
 

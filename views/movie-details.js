@@ -26,7 +26,12 @@ function onHtmlLoaded() {
     var movieDetails = new Movie();
     movieDetails.id = getMovieIdFromUrl();
    
-    movieDetails.getMovieItem(movieDetails.id);
+    movieDetails.getMovieItem(movieDetails.id).then(displayMovie);
+    
+    function displayMovie(response) {
+        console.log("RESPONSE ", response);
+        
+    }
     
     
 }
