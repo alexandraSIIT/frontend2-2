@@ -1,3 +1,4 @@
+/* global $*/
 $(document).ready(function() {
     
     function RegisterUser() {}
