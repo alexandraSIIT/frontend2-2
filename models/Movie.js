@@ -58,7 +58,7 @@ Movie.prototype.getMovieItem = function(movieId) {
 Movie.prototype.editMovie = function(id,movieData) {
     var baseURL = 'https://ancient-caverns-16784.herokuapp.com';
     return $.ajax({
-       url: baseURL + '/movies/' + id,
+       url: baseURL + '/movies/' + this.id,
        method: 'PUT',
        headers: {
            'x-auth-token':'p8lcoMNsHryvEJswS2z5ZEsUAj_wC-c4'
