@@ -10,14 +10,25 @@ const formContent=document.getElementById("editform");
 const button=document.getElementById("editm");
 
 movieDetails.id = getMovieIdFromUrl();
-movieDetails.getMovieItem().then(displayArticleToEdit())
+ movieDetails.getMovieItem().then(displayArticleToEdit);
 
 function displayArticleToEdit(){
+    movieData.title.val(movieDetails.title);
+    movieData.year.val(movieDetails.year);
+    movieData.runtime.val(movieDetails.runtime);
+    movieData.genre.val(movieDetails.genre);
+    movieData.language.val(movieDetails.language);
+    movieData.country.val(movieDetails.country);
+    movieData.poster.val(movieDetails.poster);
+    movieData.imdbRating.val(movieDetails.imdbRating);
+    movieData.imdbVotes.val(movieDetails.imdbvotes);
+    movieData.imdbId.val(movieDetails.imdbId);
+    movieData.typem.val(movieDetails.type);
     
-    console.log(movieDetails)
-    // movieData.title.val()=movieDetails.title;
+  
+}
+
     
-    }
 
 const movieData={
     title:$("#title"),
@@ -35,7 +46,7 @@ const movieData={
  
 
 
-    
+
     
 }
 
