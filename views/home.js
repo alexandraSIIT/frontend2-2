@@ -6,11 +6,11 @@ $(document).ready(onHtmlLoaded);
 function onHtmlLoaded() {
 
     //function for toggle nav-bar
-    var togglebtn=$(".toggle-icon")
+    var togglebtn=$(".toggle-icon");
     togglebtn.on("click", function(){
-        $("#toggle-nav").toggleClass("nav-bar-show")
+        $("#toggle-nav").toggleClass("nav-bar-show");
 
-    })
+    });
     
     var movieList = new MoviesList();
     var delMovie = new Movie();
@@ -43,9 +43,10 @@ function onHtmlLoaded() {
         
     });
     
-    checkLoginStatus();
+    // checkLoginStatus();
+    // displayButtonForUserLogged();
     
-    movieList.getMovies().then(displayMovie);
+    movieList.getMovies().then(displayMovie).then(checkLoginStatus);
     var content = document.getElementById('movieDisplay');
    
     
@@ -117,9 +118,6 @@ function onHtmlLoaded() {
             movieItem.appendChild(divPosterTitle);
             movieItem.appendChild(divButton);
             content.appendChild(movieItem);
-            // movieItem.appendChild(movieYear);
-            // movieItem.appendChild(movieimdbRating);
-         
         }
         
         
@@ -138,3 +136,16 @@ function onHtmlLoaded() {
      } 
 
  }
+ 
+//  function displayButtonForUserLogged() {
+//      const userLogin = Cookie.findLoggedUserToken();
+//      if(userLogin) {
+//          document.getElementById('login').style.display = "none";
+//      } else {
+//          document.getElementById('add-movie').style.display = "none";
+//          document.getElementById('logout').style.display = "none";
+//         //  document.getElementById('edit').style.display = "none";
+//         //  document.getElementById('delete').style.display = "none";
+         
+//      }
+//  }
