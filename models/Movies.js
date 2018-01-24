@@ -21,8 +21,6 @@ MoviesList.prototype.getMovies = function() {
                 movie.imdbRating = response.results[i].imdbRating;
                 
                 _this.model.push(movie);
-                
-                console.log(movie);
             
             }
         }

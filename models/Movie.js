@@ -19,13 +19,12 @@ function Movie() {
     this.awards = "";
     this.imdbvotes = "";
     this.imdbId = "";
-    this.typem = ""
+    this.typem = "";
 }
 
 Movie.prototype.getMovieItem = function(movieId) {
     var _this = this;
     var url = `https://ancient-caverns-16784.herokuapp.com/movies/` + this.id;  
-    //console.log(url);
     
     return $.ajax(url, {
         method: 'GET',
@@ -50,8 +49,6 @@ Movie.prototype.getMovieItem = function(movieId) {
             _this.imdbvotes = response.imdbVotes;
             _this.imdbId = response.imdbID;
             _this.type = response.Type;
-
-                console.log(response);
         }
     });
 };
@@ -83,6 +80,7 @@ Movie.prototype.editMovie = function(id,movieData) {
        }
     });
 };
+
 Movie.prototype.addMovieItem=function(token,movieData){
     const movieUrl="https://ancient-caverns-16784.herokuapp.com";
     return $.ajax({
@@ -112,13 +110,10 @@ Movie.prototype.addMovieItem=function(token,movieData){
         
     
         });
-    }
-
-
+    };
 
 Movie.prototype.deleteMovie = function(id, token) {
     
-    console.log(id);
     var baseURL = 'https://ancient-caverns-16784.herokuapp.com';
     
    return $.ajax({
@@ -133,7 +128,7 @@ Movie.prototype.deleteMovie = function(id, token) {
    
         }
     });      
-  }
+  };
 
   
 

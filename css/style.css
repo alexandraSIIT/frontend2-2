@@ -124,7 +124,6 @@ html, body {
     .search { 
         display: flex;
         flex-direction: row;
-       
         width: 100%;
         /* justify-content: flex-start; */
         align-items: center; 
@@ -157,9 +156,9 @@ html, body {
         }
     
     }
-    
-    
+
     /* Nav buttons div */
+    
     .nav-buttons{
         display: flex;
         flex-direction: column;
@@ -191,6 +190,7 @@ html, body {
        }
      
     /* Nav buttons */
+    
     #add-movie {
         background-color: #5a5a5a;
         border: none;
@@ -305,7 +305,7 @@ html, body {
 
 #user-name {
     text-transform: uppercase;
-    color: white;
+    color: black;
 }
     
 
@@ -317,6 +317,22 @@ html, body {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+}
+
+@media(max-width: 1024px) {
+    #movieDisplay {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        width: 80%;
+    }
+}
+
+@media(max-width: 768px) {
+    #movieDisplay {
+        width: 90%;
+    }
 }
 
 .poster-title {
@@ -338,14 +354,47 @@ html, body {
     height: 220px;
 }
 
+@media(max-width: 1024px) {
+    .img-movie {
+        width: 120px;
+        height: 200px;
+    }
+}
+
+@media(max-width: 768px) {
+    .img-movie {
+        width: 100px;
+        height: 180px;
+    }
+}
+
+@media(max-width: 425px) {
+    .img-movie {
+        width: 100px;
+        height: 180px;
+    }
+}
+
+@media(max-width: 375px) {
+    .img-movie {
+        width: 95px;
+        height: 170px;
+    }
+}
+
+@media(max-width: 320px) {
+    .img-movie {
+        width: 70px;
+        height: 150px;
+    }
+}
+
 .button-content {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;
-    
 }
-
 
 .flex-container {
     display: flex;
@@ -356,6 +405,21 @@ html, body {
     margin-top: 15px;
     background-color: #f2f2f2;
     border-radius: 15px;
+}
+
+@media(max-width: 1024px) {
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        width: 35%;
+    }
+}
+
+@media(max-width: 425px){
+    .flex-container {
+        flex-direction: column;
+        width: 70%;
+    }
 }
 
 a {
@@ -378,19 +442,13 @@ i {
     color: #ccaf00;
 }
 
+/* class for buttons for display if user is logged */
 
-.img-responsive {
-    width: 210px;
-    height: 92px;
-    margin-left: 15px;
-    border-radius: 7px;
-}
-
-
-/* buttons cotainer */
 .hide {
     visibility: hidden;
 }
+
+/* Buttons cotainer */
 
 #edit {
     background-color: #5a5a5a;
@@ -407,6 +465,26 @@ i {
     color: white;
 }
 
+@media(max-width: 1024px) {
+    #edit {
+        width: 38px;
+        padding: 3px;
+    }
+}
+
+@media(max-width: 425px) {
+    #edit {
+        width: 40px;
+    }
+}
+
+@media(max-width: 375px) {
+    #edit {
+        width: 35px;
+        padding: 0px;
+    }
+}
+
 #delete {
     background-color: #5a5a5a;
     color: white;
@@ -421,6 +499,27 @@ i {
     color: white;
 }
 
+@media(max-width: 1024px) {
+    #delete {
+        width: 48px;
+        padding: 3px;
+    }
+}
+
+@media(max-width: 425px) {
+    #delete {
+        width: 50px;
+        padding: 3px;
+    }
+}
+
+@media(max-width: 375px) {
+    #delete {
+        width: 45px;
+        padding: 0px;
+    }
+}
+
 /* Footer */
 
 .footer {
@@ -430,4 +529,12 @@ i {
     position: fixed;
     bottom: 0;
     width: 100%;
+    text-align: center;
+}
+
+@media(max-width: 320px) {
+    .footer {
+        width: 100%;
+        font-size: 12px;
+    }
 }
