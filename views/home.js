@@ -43,15 +43,13 @@ function onHtmlLoaded() {
         
     });
     
-    // checkLoginStatus();
-    // displayButtonForUserLogged();
-    
-    movieList.getMovies().then(displayMovie).then(checkLoginStatus);
+    movieList.getMovies().then(displayMovie).then(checkLoginStatus).then(displayButtonForUserLogged);
     var content = document.getElementById('movieDisplay');
    
     
     function displayMovie() {
 
+        var userToken = Cookie.findLoggedUserToken();
         
         for(var i = 0; i < 10; i++) {
             
@@ -99,14 +97,17 @@ function onHtmlLoaded() {
                 deleteButton.innerHTML = 'Delete';
                 deleteButton.addEventListener("click",function(e){
                     let token = Cookie.findLoggedUserToken();
-                    // console.log(e.path[2].id);
                     
-                       delMovie.deleteMovie(e.path[2].id).then(deleteMovieItem(e)).catch(function(err){
+                       delMovie.deleteMovie(e.path[2].id, token).then(deleteMovieItem(e)).catch(function(err){
                         alert("olga nu ai facut bine");
                     });
-
+            
                 });
-                
+            
+            if(!userToken){
+                editButton.setAttribute('class', 'hide');
+                deleteButton.setAttribute('class', 'hide');
+            }
                 
             divPoster.appendChild(moviePoster);
             divTitle.appendChild(movieTitle);
@@ -138,15 +139,13 @@ function onHtmlLoaded() {
 
  }
  
-//  function displayButtonForUserLogged() {
-//      const userLogin = Cookie.findLoggedUserToken();
-//      if(userLogin) {
-//          document.getElementById('login').style.display = "none";
-//      } else {
-//          document.getElementById('add-movie').style.display = "none";
-//          document.getElementById('logout').style.display = "none";
-//         //  document.getElementById('edit').style.display = "none";
-//         //  document.getElementById('delete').style.display = "none";
+ function displayButtonForUserLogged() {
+     const userLogin = Cookie.findLoggedUserToken();
+     if(userLogin) {
+         document.getElementById('login').style.display = "none";
+     } else {
+         document.getElementById('add-movie').style.display = "none";
+         document.getElementById('logout').style.display = "none";
          
-//      }
-//  }
+     }
+ }
