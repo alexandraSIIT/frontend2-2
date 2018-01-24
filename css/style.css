@@ -388,6 +388,10 @@ i {
 
 
 /* buttons cotainer */
+.hide {
+    visibility: hidden;
+}
+
 #edit {
     background-color: #5a5a5a;
     color: white;
