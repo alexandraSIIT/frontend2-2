@@ -1,0 +1,330 @@
+* {
+  box-sizing: border-box;
+  font-family: Georgia, serif;
+}
+
+/*body {*/
+/*    background: linear-gradient(lightgrey, white);*/
+/*    height: 100%;*/
+/*}*/
+
+    /* header */
+    
+    header {
+        background-color: #343a40;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        position: relative;
+    }
+    @media(min-width:768px){
+        header {
+            background-color: #343a40;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+          
+        }
+    }
+    /* logo image */
+    
+    .logo {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content:space-between;
+        align-items: center;
+        position: relative;
+        padding: 10px;
+        
+    }
+    
+    @media(min-width:768px){
+        .logo{
+          width: 25%;
+          margin-left: 20px;
+       
+        }
+    }
+    @media(min-width:1024px){
+        .logo{
+            width: 20%;
+        }
+    }
+    
+    .imgLogo {
+        max-width: 100%;
+        height: auto;
+        background-color:#f8f8f2;
+        box-shadow: 2px 3px 2px rgb(65, 63, 63);
+        border-radius:18px;
+        padding: 3px;
+        margin: 3px 10px 3px 3px;
+    }
+
+        /* Toggle-icon */
+    
+    .toggle-icon{
+            display: flex;
+            flex-direction: row;
+           
+            margin-right: 10px;
+            display:block;
+            }
+    
+            
+    @media(min-width:768px){
+            .toggle-icon{
+                display: none;
+            }
+    }
+    .fa-bars{
+                color:rgb(196, 193, 193);
+            }
+    
+    /* Nav bar */
+   
+    .nav-bar{
+        display: none;
+        position: relative;
+        width: 100%;
+        background-color: rgb(236, 232, 232);
+       
+        }
+    .nav-bar-show{
+            display: block;
+          }
+    
+     @media(min-width: 768px){
+         .nav-bar{
+            
+                background-color:inherit;
+                position: relative;
+                top: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items:center;
+                width: 70%; 
+                
+             } 
+       }
+     @media(min-width:1024px){
+           .nav-bar{
+            width: 80%;  
+            
+           }
+       }
+       
+   /* Nav buttons div */
+    .nav-buttons{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    
+    }
+    
+    @media(min-width:768px){
+     .nav-buttons {
+        display: flex;
+        flex-direction: row;
+        width:40%;
+        justify-content: center;
+        align-items: center;
+        
+      
+    } 
+    }
+    @media(min-width:1024px){
+        .nav-buttons {
+         
+           width:31%;
+           justify-content:flex-end;
+           margin-right: 10px;
+       
+       } 
+       }
+     
+    /* Nav buttons */
+    #add-movie {
+        background-color: #5a5a5a;
+        border: none;
+        color: white;
+        width: 100%;
+        padding: 2px;
+        margin: 1px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    @media(min-width:768px){
+        #add-movie {
+            width:auto;
+            height: auto;
+            font-size: 14px;
+            padding: 2px 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+    
+    @media(min-width:1024px){
+        #add-movie {
+          
+            font-size: 17px;
+    
+           }
+        }
+    
+    #add-movie:hover {
+        background-color: #337ab7;
+        color: white; 
+    }
+    
+    #login {
+        background-color: #5a5a5a;
+        border: none;
+        color: white;
+        width: 100%;
+        padding: 2px;
+        margin: 1px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    
+    @media(min-width:768px){
+        #login {
+            width: auto;
+            font-size: 14px;
+            height: auto;
+            padding: 2px 5px;
+            margin-right: 5px; 
+    
+        }
+    }
+    @media(min-width:1024px){
+        #login {
+          
+            font-size: 17px;
+           }
+    
+        }
+    #login:hover {
+        background-color: #337ab7;
+    }
+    
+    
+    #logout {
+        background-color: #5a5a5a;
+        border: none;
+        color: white;
+        width: 100%;
+        padding: 2px;
+        margin: 1px;
+        height: 40px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    @media(min-width:768px){
+        #logout{
+            width:auto;
+            font-size: 14px;
+            height: auto;
+            padding: 2px 5px;
+            margin-right: 5px;
+            
+        }
+    }
+    @media(min-width:1024px){
+        #logout {
+          
+            font-size: 17px;
+           }
+        }
+    
+    #logout:hover {
+        background-color: #337ab7; 
+    }
+    
+/*content*/
+
+span {
+   /*font-weight:bold;*/
+   color: #5a5a5a;
+  
+}
+p {
+    color: #5a5a5a;
+    
+}
+#titleMovie {
+    font-family: 'Risque', cursive;
+    font-size: 20px;
+    font-weight: bold;
+    
+    }
+
+#details {
+    border-radius: 25px;
+    padding:15px;
+    box-shadow: 0 6px 10px 0 #bababa, 0 6px 20px 0 #bababa;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+@media (min-width:760px) {
+    #details {
+        flex-direction: row;
+        width: 90%;
+    }
+}
+@media (min-width:1024px) {
+    #details {
+        width: 70%;
+    }
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+    line-height: 100%;
+    justify-content: flex-start;
+}
+.image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+#imgPoster {
+ width: 100%;
+ height: auto;
+ padding: 10px;
+}
+
+/* Footer */
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    font-size: 15px;
+    position: fixed;
+    bottom: 0;
+}

@@ -6,6 +6,7 @@ function Movie() {
     this.title = "";
     this.year = "";
     this.imdbRating = "";
+    this.rated = "";
     this.released = "";
     this.runtime = "";
     this.genre = "";
@@ -35,6 +36,7 @@ Movie.prototype.getMovieItem = function(movieId) {
             _this.title = response.Title;
             _this.year = response.Year;
             _this.imdbRating = response.imdbRating;
+            _this.rated = response.Rated;
             _this.released = response.Released;
             _this.runtime = response.Runtime;
             _this.genre = response.Genre;
