@@ -98,8 +98,9 @@ function onHtmlLoaded() {
                 deleteButton.addEventListener("click",function(e){
                     let token = Cookie.findLoggedUserToken();
                     
+                  
                        delMovie.deleteMovie(e.path[2].id, token).then(deleteMovieItem(e)).catch(function(err){
-                        alert("olga nu ai facut bine");
+                        alert("There was a problem with your submition,you do not have permition to acces this server");
                     });
             
                 });
