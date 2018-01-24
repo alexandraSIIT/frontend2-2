@@ -388,6 +388,10 @@ i {
 
 
 /* buttons cotainer */
+.hide {
+    visibility: hidden;
+}
+
 #edit {
     background-color: #5a5a5a;
     color: white;
@@ -423,5 +427,7 @@ i {
     background-color: #343a40;
     color: white;
     font-size: 15px;
-    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

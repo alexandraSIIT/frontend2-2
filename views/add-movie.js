@@ -37,11 +37,31 @@ function onHtmlLoaded(){
     
          if(validate(movieData)){
          addMovie.addMovieItem(token,movieData)
-         .then(submitedSuccess(successMsg,msg,formContent))
+         .then(data=>{ 
+              formContent.reset();
+              successMsg.style.display="block";
+              msg.innerHTML="";
+              setBorders();
+              setTimeout(function(){
+              successMsg.style.display="none";
+               },3000)
+         }).catch(reason=>msg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
         }else{errors(msg)}
+        
+    //     function submitedSuccess(successMsg,msg,formContent){ 
+    //     formContent.reset();
+    //     successMsg.style.display="block";
+    //     msg.innerHTML="";
+    //     setBorders();
+    
+  
+    //   setTimeout(function(){
+    //     successMsg.style.display="none";
+    //     },3000)
+    //   };
+
      
        });
-
 
 
 
@@ -53,17 +73,7 @@ function onHtmlLoaded(){
     
    
 
-    function submitedSuccess(successMsg,msg,formContent){ 
-        formContent.reset();
-        successMsg.style.display="block";
-        msg.innerHTML="";
-        setBorders();
     
-  
-       setTimeout(function(){
-        successMsg.style.display="none";
-        },3000)
-       };
 
 
     function errors(msg){

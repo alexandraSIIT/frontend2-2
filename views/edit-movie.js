@@ -61,7 +61,16 @@ $(document).ready(onHtmlLoaded);
     
         if(validate(movieData)){
             movieDetails.editMovie(movieDetails.id,movieData)
-        .then(submitedSuccess(successMsg,msg))
+        .then(data=>{ 
+              formContent.reset();
+              successMsg.style.display="block";
+              msg.innerHTML="";
+              setBorders();
+              setTimeout(function(){
+              successMsg.style.display="none";
+              window.location.href = 'home.html'
+               },3000)
+         }).catch(reason=>msg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
             }else{errors(msg)}
         
 
@@ -72,18 +81,6 @@ $(document).ready(onHtmlLoaded);
 }
     function validate(movieData){
         return (movieData.title.val()!=="" && movieData.year.val()!=="" && !isNaN(movieData.year.val()) && movieData.runtime.val()!=="" && movieData.genre.val()!="" && movieData.language.val()!=="" && movieData.country.val()!=="" && movieData.poster.val()!=="" && movieData.imdbRating.val()!=="" && movieData.imdbVotes.val()!=="" &&  movieData.imdbId.val()!=="" && movieData.typem.val()!=="")?true:false};
-
-    function submitedSuccess(successMsg,msg,formContent){ 
-
-        successMsg.style.display="block";
-        msg.innerHTML="";
-        setBorders();
-
-
-        setTimeout(function(){
-        successMsg.style.display="none";
-        },3000)
-     };
 
 
     function errors(msg){
