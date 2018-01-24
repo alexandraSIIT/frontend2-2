@@ -55,13 +55,13 @@ Movie.prototype.getMovieItem = function(movieId) {
 };
 
 
-Movie.prototype.editMovie = function(id,movieData,token) {
+Movie.prototype.editMovie = function(id,movieData) {
     var baseURL = 'https://ancient-caverns-16784.herokuapp.com';
     return $.ajax({
        url: baseURL + '/movies/' + this.id,
        method: 'PUT',
        headers: {
-           'x-auth-token':token
+           'x-auth-token':'p8lcoMNsHryvEJswS2z5ZEsUAj_wC-c4'
        },
        data:{
         Title:movieData.title.val(),
@@ -114,7 +114,7 @@ Movie.prototype.addMovieItem=function(token,movieData){
 
 
 
-Movie.prototype.deleteMovie = function(id) {
+Movie.prototype.deleteMovie = function(id, token) {
     
     console.log(id);
     var baseURL = 'https://ancient-caverns-16784.herokuapp.com';
@@ -123,7 +123,7 @@ Movie.prototype.deleteMovie = function(id) {
         url: baseURL + '/movies/' + id ,
         method: 'DELETE',
         headers: {
-            'x-auth-token':'p8lcoMNsHryvEJswS2z5ZEsUAj_wC-c4'
+            'x-auth-token': token
         },
         
         success: function(response) {
