@@ -98,7 +98,8 @@ function onHtmlLoaded() {
                 deleteButton.setAttribute('id', 'delete');
                 deleteButton.innerHTML = 'Delete';
                 deleteButton.addEventListener("click",function(e){
-                    console.log(e.path[2].id);
+                    let token = Cookie.findLoggedUserToken();
+                    // console.log(e.path[2].id);
                     
                        delMovie.deleteMovie(e.path[2].id).then(deleteMovieItem(e)).catch(function(err){
                         alert("olga nu ai facut bine");
