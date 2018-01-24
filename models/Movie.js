@@ -105,7 +105,7 @@ Movie.prototype.addMovieItem=function(token,movieData){
         },
         error:function(err){
        
-        console.log("eroor status is: "+err.status+" that means "+err.responseJSON.message)
+        
         },
         
     
