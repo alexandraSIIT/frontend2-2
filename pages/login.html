@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="shortcut icon" type="image/png" href="resources/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="css.css" />
+    <link rel="shortcut icon" type="image/png" href="resources/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/style.css" type="text/css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../models/Auth.js"></script>
     <script src="../models/Validate.js"></script>
@@ -16,6 +17,14 @@
     <title>Login page</title>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="..\pages\resources\logofinal1.1.png" class="imgLogo"></img>
+             <div class="toggle-icon">
+             <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
+             </div>
+        </div>
+    </header>
     <div class="container" id='root'>
         <form class="form-signin" autocomplete="on">
             <h2 class="form-signin-heading">Please sign in</h2>
@@ -32,5 +41,6 @@
         </form>
         <h5>If you don`t have an account, you can register <a href="register.html">HERE.</a></h5>
     </div>
+    <div class="col-md-12 text-center footer">Copyright &copy; Blue TEAM 2018: All rights reserved! </div>
 </body>
 </html>
