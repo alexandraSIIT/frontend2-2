@@ -55,13 +55,13 @@ Movie.prototype.getMovieItem = function(movieId) {
 };
 
 
-Movie.prototype.editMovie = function(id,movieData) {
+Movie.prototype.editMovie = function(id,movieData,token) {
     var baseURL = 'https://ancient-caverns-16784.herokuapp.com';
     return $.ajax({
        url: baseURL + '/movies/' + this.id,
        method: 'PUT',
        headers: {
-           'x-auth-token':'p8lcoMNsHryvEJswS2z5ZEsUAj_wC-c4'
+           'x-auth-token':token
        },
        data:{
         Title:movieData.title.val(),

@@ -1,3 +1,4 @@
+
  $(document).ready(onHtmlLoaded);
 function onHtmlLoaded(){
 
@@ -8,7 +9,7 @@ function onHtmlLoaded(){
    
            }) 
        const addMovie=new Movie();
-       const token="09pzCOnnXwyx8VlM-rriX2c5mGZssJ9z";
+       let token= Cookie.findLoggedUserToken();
        const formContent=document.getElementById("addform");
        const button=document.getElementById("addm");
    

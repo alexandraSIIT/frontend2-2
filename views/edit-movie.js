@@ -56,7 +56,8 @@ $(document).ready(onHtmlLoaded);
     button.addEventListener("click",function(validateAndSendData){
         validateAndSendData.preventDefault();
         const msg=document.getElementById("warningMsg");
-        const successMsg=document.getElementById("successMsg")
+        const successMsg=document.getElementById("successMsg");
+        let token=Cookie.findLoggedUserToken();
     
         if(validate(movieData)){
             movieDetails.editMovie(movieDetails.id,movieData)
