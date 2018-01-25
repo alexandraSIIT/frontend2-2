@@ -1,7 +1,7 @@
 /* global $*/
 $(document).ready(function() {
     
-    function RegisterUser() {}
+    // function RegisterUser() {}
 
     // validation method
     RegisterUser.prototype.validate = function(userName, password) {
@@ -31,6 +31,24 @@ $(document).ready(function() {
 
         return !errors;
     };
+    
+// RegisterUser.prototype.send = function(userName, password) {
+//         return $.ajax({
+//             url: "https://ancient-caverns-16784.herokuapp.com/auth/register",
+//             method: "POST",
+//             data: {
+//                 username: userName,
+//                 password: password
+//             },
+//             success: function(response) {
+//                 console.log(response);
+//             },
+//             error: function(error) {
+//                 $('#errorMsg').html(error);
+//             }
+//         });
+//     };
+
 
 var newUser = new RegisterUser();
 
@@ -43,7 +61,6 @@ var newUser = new RegisterUser();
             .then(data => {
                     Cookie.setCookie(userName, data.accessToken);
                     window.location.href = 'home.html';
-                    window.close();
                 })
         }
     });
