@@ -10,6 +10,7 @@
         <script type="text/javascript" src="../models/Movies.js"></script>
         <script src="../models/Auth.js"></script>
         <script src="../models/Cookie.js"></script>
+        <script src="../views/search.js"></script>
         <script type="text/javascript" src="../views/home.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,19 +24,7 @@
                  <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
                  </div>
             </div>
-                
-                 <div class="nav-bar" id="toggle-nav">
-                 <div class="search">
-                            <div class="input-group stylish-input-group">
-                                <input type="text" class="form-control"  placeholder="Search" >
-                                <span class="input-group-addon">
-                                    <button type="submit">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>  
-                                </span>
-                            </div>
-            	</div>
-            	
+            <div class="nav-bar" id="toggle-nav">
                 <div class="nav-buttons">
                     <button id="add-movie">Add movie</button>
                     <button id="login">Login</button>
@@ -43,16 +32,23 @@
                     <p id="user-name"></p>
                 </div>
             </div>
-                    
         </header>  
         <div id="container">
             <div class="col-md-2">
-                
             </div>
             <div id="movieDisplay" class="col-md-8">
-
+                <div class="container">
+                <form>
+                    <select name="select" id="select">
+                        <option value="Title">Title</option>
+                        <option value="Genre">Genre</option>
+                        <option value="Year">Year</option>
+                    </select>
+                    <input class="form-control" type="text" name="queryString" id="queryString" placeholder="Search" required/>
+                    <button id="submitSearch"><span class="glyphicon glyphicon-search"></span></button>
+                </form>
                 </div>
-                
+            </div>
             <div class="col-md-2">
             </div>
         </div>
