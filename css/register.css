@@ -1,0 +1,61 @@
+body {
+    background: #555;
+}
+form {
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+}
+label {
+    display: block;
+    position: relative;
+    top: -20px;
+    left: 0px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 16px;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+input {
+    display: block;
+    position: relative;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black #ddd;
+    width: 100%;
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2;
+}
+input:focus, input:valid {
+    outline: none;
+    border-bottom: 1px solid #00aced;
+}
+input:focus + label, input:valid + label {
+    position: relative;
+    top: -40px;
+    font-size: 16px;
+    color: #00aced;
+}
+.divider {
+    position: relative;
+    height: 20px;
+    width: auto;
+    background: none;
+}
+#submit {
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #343a40;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}

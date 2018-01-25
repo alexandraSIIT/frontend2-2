@@ -23,7 +23,7 @@ class Auth {
 
 Auth.logInUrl  = 'https://ancient-caverns-16784.herokuapp.com/auth/login';
 Auth.logOutUrl = 'https://ancient-caverns-16784.herokuapp.com/auth/logout';
-
+function RegisterUser() {}
 RegisterUser.prototype.send = function(userName, password) {
         return $.ajax({
             url: "https://ancient-caverns-16784.herokuapp.com/auth/register",

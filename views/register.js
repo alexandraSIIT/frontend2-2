@@ -42,7 +42,8 @@ var newUser = new RegisterUser();
             newUser.send(userName, password)
             .then(data => {
                     Cookie.setCookie(userName, data.accessToken);
-                    window.location.href = 'home.html'; 
+                    window.location.href = 'home.html';
+                    window.close();
                 })
         }
     });

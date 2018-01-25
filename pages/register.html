@@ -10,16 +10,33 @@
     <script src="../models/Cookie.js"></script>
     <script src="../views/login.js"></script>
     <script src="../views/register.js"></script>
+    <link rel="stylesheet" href="../css/register.css" type="text/css" />
+   <link rel="stylesheet" href="../css/style.css" type="text/css" />
+    
+    <link rel="shortcut icon" type="image/png" href="resources/favicon.ico"/>
+    <title>Register Page</title>
     </head>
     <body>
-        <form novalidate>
-            <h3>Register User</h3>
-            <input type="text" id="userName" name="userName" placeholder="Username">
-            <br>
-            <input type="password" id="password" name="password" placeholder="Password">
-            <br>
+        <header>
+        <div class="logo">
+            <img src="..\pages\resources\logofinal1.1.png" class="imgLogo"></img>
+             <div class="toggle-icon">
+             <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
+             </div>
+        </div>
+    </header>
+    <form novalidate>
+            
+            <input type="text" id="userName" name="userName" autocomplete="off">
+            <label for="enterusername">Enter Username</label>
+            
+            <div class="divider"></div>
+            <input type="password" id="password" name="password" autocomplete="off">
+            <label for='enterpassword'>Enter Password</label>
+            <div class="divider"></div>
             <button type="button" id="submit">Register</button>
             <p id="errorMsg"></p>
         </form>
+        <div class="col-md-12 text-center footer">Copyright &copy; Blue TEAM 2018: All rights reserved! </div>
     </body>
 </html>
