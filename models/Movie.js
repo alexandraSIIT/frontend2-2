@@ -129,18 +129,6 @@ Movie.prototype.deleteMovie = function(id, token) {
         }
     });      
   };
-  
-Movie.prototype.searchMovie = function(selection, queryString) {
-    
-    const url = 'https://ancient-caverns-16784.herokuapp.com/movies';
-    
-    return $.ajax({
-        url: `${url}?${selection}=${queryString}`,
-        method: 'GET'
-    });
-};
-
-  
 
 
 
