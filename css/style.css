@@ -5,6 +5,7 @@
 
 html, body {
     background: linear-gradient(lightgrey, white);
+    background-repeat: repeat-x;
 }
 
 
@@ -19,9 +20,11 @@ html, body {
         padding: 5px;
         position: relative;
     }
-    @media(min-width:768px){
+    
+    @media(min-width: 768px){
         header {
             background-color: #343a40;
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
@@ -135,7 +138,7 @@ html, body {
     
     @media(max-width: 320px){
         .form-control {
-            width: 200px;
+            width: 180px;
         }
     }
    
@@ -305,6 +308,35 @@ html, body {
         background-color: #337ab7; 
     }
     
+    #register {
+        background-color: #5a5a5a;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+    
+    @media(max-width: 425px) {
+        #register{
+            width: 100%;
+            height: 30px;
+        }
+    }
+    
+    #register a {
+        color: white;
+        text-decoration: none;
+        padding: 7px;
+        font-weight: normal;
+        font-size: 16px;
+    }
+    
+    #register:hover {
+        background-color: #337ab7;
+    }
+
 /* Display user name */
 
 #user-name {
@@ -415,7 +447,8 @@ html, body {
     padding: 25px;
     margin: 5px;
     margin-top: 15px;
-    background-color: #f2f2f2;
+    /*background-color: #f2f2f2;*/
+    background-color: lightgrey;
     border-radius: 15px;
 }
 
@@ -461,7 +494,6 @@ a {
     cursor: pointer;
     font-size: 15px;
     font-weight: bold;
-    padding: 10px;
 }
 
 p {

@@ -146,7 +146,7 @@ function displayMovies(data, elementId) {
 }
 
 function deleteMovieItem(id){
-    $(`#${id}`).remove()
+    $(`#${id}`).remove();
 }
  
 function checkLoginStatus() {
@@ -160,6 +160,7 @@ function displayButtonForUserLogged() {
     const userLogin = Cookie.findLoggedUserToken();
     if (userLogin) {
         document.getElementById('login').style.display = "none";
+        document.getElementById('register').style.display = "none";
     } 
     else {
         document.getElementById('add-movie').style.display = "none";
@@ -177,7 +178,7 @@ function searchMovies() {
         
         movies.searchMovies(selection, queryString)
             .then(() => {
-                displayMovies(movies.model, "movieDisplay");
+                displayMovies(movies.model, "searchDisplay");
             })
             .catch(reason => {
                 alert(reason.responseJSON.message);
