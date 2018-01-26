@@ -122,6 +122,7 @@ function displayMovies(data, elementId) {
             if (!userToken) {
                 editButton.setAttribute('class', 'hide');
                 deleteButton.setAttribute('class', 'hide');
+                document.getElementById('user-name').setAttribute('class', 'hide');
             }
             
             // deleteButton.addEventListener("click",function(e){
@@ -181,7 +182,7 @@ function searchMovies() {
         
         movies.searchMovies(selection, queryString)
             .then(() => {
-                displayMovies(movies.model, "searchDisplay");
+                displayMovies(movies.model, "movieDisplay");
             })
             .catch(reason => {
                 alert(reason.responseJSON.message);

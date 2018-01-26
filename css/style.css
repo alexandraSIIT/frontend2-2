@@ -28,35 +28,26 @@ html, body {
           
         }
     }
-    /* logo image */
+
+/* logo image */
     
-    .logo {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        justify-content:space-between;
-        align-items: center;
-        position: relative;
-        padding: 10px;
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px;
         
+}
+
+@media(max-width: 768px) {
+    .imgLogo {
+        width: 150px;
     }
-    
-    @media(min-width:768px){
-        .logo{
-          width: 25%;
-          margin-left: 20px;
-       
-        }
-    }
-    @media(min-width:1024px){
-        .logo{
-            width: 20%;
-        }
-    }
+}
     
     .imgLogo {
-        max-width: 100%;
-        height: auto;
         background-color:#f8f8f2;
         box-shadow: 2px 3px 2px rgb(65, 63, 63);
         border-radius:18px;
@@ -69,7 +60,6 @@ html, body {
     .toggle-icon{
             display: flex;
             flex-direction: row;
-           
             margin-right: 10px;
             display:block;
             }
@@ -118,43 +108,59 @@ html, body {
            }
        }
     
-    
     /* Search */
-    
-    .search { 
+
+.search { 
         display: flex;
         flex-direction: row;
         width: 100%;
-        /* justify-content: flex-start; */
-        align-items: center; 
-      
-       
-    }
-    
-    .input-group-addon {
-        border: none;
+        padding: 25px;
+        margin-right: 30px
      }
      
-     .glyphicon-search {
-         border: none;
-     }
+#select {
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.form-control {
+    width: 330px;
+}
+
+  @media(max-width: 1440px) {
+      .form-control {
+          width: 470px;
+      }
+  }
     
-    @media(min-width:768px){
-        .search{
-           width: 58%; 
-         
-         
+    @media(max-width: 320px){
+        .form-control {
+            width: 200px;
         }
-    
+    }
+   
+    @media(max-width: 320px){
+        #select {
+            margin-left: -15px;
+        }
     }
     
-    @media(min-width:1024px){
-        .search{
-           width: 60%; 
-           margin-left: 50px;
-           
+     @media(max-width: 375px){
+        .form-control {
+            width: 320px;
         }
+    }
+   
+    @media(max-width: 375px){
+        #select {
+            margin-left: -15px;
+        }
+    }
     
+    @media(max-width: 425px){
+        .form-control {
+            width: 320px;
+        }
     }
 
     /* Nav buttons div */
@@ -171,14 +177,14 @@ html, body {
     @media(min-width:768px){
      .nav-buttons {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width:40%;
         justify-content: center;
         align-items: center;
-        
       
-    } 
+        } 
     }
+    
     @media(min-width:1024px){
         .nav-buttons {
          
@@ -186,7 +192,7 @@ html, body {
            justify-content:flex-end;
            margin-right: 10px;
        
-       } 
+           } 
        }
      
     /* Nav buttons */
@@ -211,8 +217,6 @@ html, body {
             height: auto;
             font-size: 14px;
             padding: 2px 5px;
-            margin-left: 5px;
-            margin-right: 5px;
         }
     }
     
@@ -234,7 +238,6 @@ html, body {
         border: none;
         color: white;
         width: 100%;
-        padding: 2px;
         margin: 1px;
         height: 40px;
         text-align: center;
@@ -246,11 +249,11 @@ html, body {
     
     @media(min-width:768px){
         #login {
-            width: auto;
-            font-size: 14px;
+            width:auto;
+            font-size: 13px;
             height: auto;
-            padding: 2px 5px;
-            margin-right: 5px; 
+            padding-left: 19px;
+            padding-right: 19px;
     
         }
     }
@@ -261,6 +264,7 @@ html, body {
            }
     
         }
+   
     #login:hover {
         background-color: #337ab7;
     }
@@ -271,7 +275,6 @@ html, body {
         border: none;
         color: white;
         width: 100%;
-        padding: 2px;
         margin: 1px;
         height: 40px;
         text-align: center;
@@ -280,19 +283,20 @@ html, body {
         cursor: pointer;
         border-radius: 5px;
     }
+   
     @media(min-width:768px){
         #logout{
             width:auto;
-            font-size: 14px;
+            font-size: 13px;
             height: auto;
-            padding: 2px 5px;
-            margin-right: 5px;
+            padding-left: 19px;
+            padding-right: 19px;
             
         }
     }
+    
     @media(min-width:1024px){
         #logout {
-          
             font-size: 17px;
            }
         }
@@ -305,13 +309,21 @@ html, body {
 
 #user-name {
     text-transform: uppercase;
-    color: black;
+    background-color: #5a5a5a;
+    color: white;
+    width:auto;
+    font-size: 14px;
+    height: auto;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1px;
+    text-align: center;
 }
-    
 
 /* Content */
 
-#movieDisplay {
+#movieDisplay, #searchDisplay {
     background-color: white;
     display: flex;
     flex-wrap: wrap;
@@ -320,7 +332,7 @@ html, body {
 }
 
 @media(max-width: 1024px) {
-    #movieDisplay {
+    #movieDisplay, #searchDisplay  {
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
@@ -330,7 +342,7 @@ html, body {
 }
 
 @media(max-width: 768px) {
-    #movieDisplay {
+    #movieDisplay, #searchDisplay  {
         width: 90%;
     }
 }
@@ -415,10 +427,31 @@ html, body {
     }
 }
 
+@media(max-width: 768px){
+    .flex-container {
+        flex-direction: column;
+        width: 40%;
+    }
+}
+
 @media(max-width: 425px){
     .flex-container {
         flex-direction: column;
-        width: 70%;
+        width: 90%;
+    }
+}
+
+@media(max-width: 375px){
+    .flex-container {
+        flex-direction: column;
+        width: 90%;
+    }
+}
+
+@media(max-width: 320px){
+    .flex-container {
+        flex-direction: column;
+        width: 90%;
     }
 }
 
