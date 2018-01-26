@@ -1,4 +1,4 @@
-/* global $ MoviesList Cookie Auth*/
+/* global $ MoviesList Movie Cookie Auth*/
 
 $(document).ready(onHtmlLoaded);
 
@@ -8,12 +8,17 @@ function onHtmlLoaded() {
     displayButtonForUserLogged();
     getMovies();
     
-    // Attach a delegated event handler
+    // delete Movie - attach a delegated event handler
     //we are getting the id from the parent div of the clicked delete button
     $("body").on( "click", "#delete", function(event) {
         var elem = $( this );
         var parentId = elem.closest("section", "flex-container")[0].id;
-        deleteMovieItem(parentId);
+        var userLogin = Cookie.findLoggedUserToken();
+        var movie = new Movie;
+        movie.deleteMovie(parentId, userLogin)
+            .then( function() {
+                deleteMovieItem(parentId);    
+            });
     });
     
     //add movie button
@@ -125,16 +130,6 @@ function displayMovies(data, elementId) {
                 document.getElementById('user-name').setAttribute('class', 'hide');
             }
             
-            // deleteButton.addEventListener("click",function(e){
-                  
-            // delMovie.deleteMovie(e.path[2].id, token)
-            //     .then(deleteMovieItem(e))
-            //     .catch(function(err){
-            //             alert("There was a problem with your submition,you do not have permition to acces this server");
-            //     });
-            
-            // });
-            
             divPoster.appendChild(moviePoster);
             divTitle.appendChild(movieTitle);
             divTitle.appendChild(movieYear);
@@ -150,8 +145,8 @@ function displayMovies(data, elementId) {
     }
 }
 
-function deleteMovieItem(e){
-    e.path[2].remove();
+function deleteMovieItem(id){
+    $(`#${id}`).remove()
 }
  
 function checkLoginStatus() {
