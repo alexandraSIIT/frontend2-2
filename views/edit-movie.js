@@ -10,7 +10,7 @@ $(document).ready(onHtmlLoaded);
           })
 
      const movieDetails = new Movie();
-     const token="09pzCOnnXwyx8VlM-rriX2c5mGZssJ9z";
+    
      const formContent=document.getElementById("editform");
      const button=document.getElementById("editm");
 
@@ -69,6 +69,7 @@ $(document).ready(onHtmlLoaded);
               setTimeout(function(){
               successMsg.style.display="none";
               window.location.href = 'home.html'
+            //   windows.close();
                },3000)
          }).catch(reason=>msg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
             }else{errors(msg)}
