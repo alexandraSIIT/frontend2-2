@@ -1,6 +1,6 @@
-
+/*global $ Movie Cookie*/
  $(document).ready(onHtmlLoaded);
-function onHtmlLoaded(){
+ function onHtmlLoaded(){
 
         //  function for toggle nav-bar
        const togglebtn=$(".toggle-icon")
@@ -15,14 +15,11 @@ function onHtmlLoaded(){
    
 
   
-       button.addEventListener("click",function(validateAndSendData){
+         button.addEventListener("click",function(validateAndSendData){
          validateAndSendData.preventDefault();
       
-         
          const erorMsg=document.getElementById("warningMsg");
         
-        
-     
          const movieData={
                   title:$("#title"),
                   year:$("#year"),
@@ -36,9 +33,21 @@ function onHtmlLoaded(){
                   imdbId:$("#imdbid"),
                   typem:$("#typem")
          }
-         
-      
-         function validate(){
+       
+        if(validate(movieData,erorMsg)){
+            addMovie.addMovieItem(token,movieData)
+                .then(data=>{ 
+                      formContent.reset();
+                      displayAndRemoveSuccesMsg()
+                      resetErrorMsg(erorMsg)
+                      
+                      
+                 }).catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
+         }
+         });
+
+}   
+    function validate(movieData,erorMsg){
              let errors=false
              erorMsg.innerHTML=""
              if(movieData.title.val()==""){
@@ -47,7 +56,7 @@ function onHtmlLoaded(){
                     errors=true
              }
              else{
-                 movieData.title.removeClass("errors")
+                    movieData.title.removeClass("errors")
              }
              
              if(movieData.year.val()==""){
@@ -57,7 +66,7 @@ function onHtmlLoaded(){
              }
              
              else{
-                 movieData.year.removeClass("errors")
+                     movieData.year.removeClass("errors")
              }
              
              if(movieData.runtime.val()==""){
@@ -67,7 +76,7 @@ function onHtmlLoaded(){
              }
              
              else{
-                 movieData.runtime.removeClass("errors")
+                     movieData.runtime.removeClass("errors")
              }
              
              if(movieData.genre.val()==""){
@@ -76,7 +85,7 @@ function onHtmlLoaded(){
                     errors=true
              }
              else{
-                 movieData.genre.removeClass("errors")
+                     movieData.genre.removeClass("errors")
              }
                
              if(movieData.poster.val()==""){
@@ -85,7 +94,7 @@ function onHtmlLoaded(){
                     errors=true
              }
              else{
-                 movieData.poster.removeClass("errors")
+                    movieData.poster.removeClass("errors")
              }
              
             if(movieData.imdbRating.val()==""){
@@ -94,47 +103,29 @@ function onHtmlLoaded(){
                     errors=true
              }
              else{
-                 movieData.imdbRating.removeClass("errors")
+                    movieData.imdbRating.removeClass("errors")
              }
              
            
              return !errors
                  
             }
-            
-       
-      
-        
-
-        if(validate()){
-            addMovie.addMovieItem(token,movieData)
-                .then(data=>{ 
-                      formContent.reset();
-                      displayAndRemoveSuccesMsg()
-                      erorMsg.innerHTML="";
-                      
-                 }).catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-         }
-         });
-
-}
-
-
-      function displayAndRemoveSuccesMsg(){
+    function displayAndRemoveSuccesMsg(){
         
          const successMsg=document.getElementById("successMsg");
                successMsg.style.display="block"
-         setTimeout(function(){
+               
+               setTimeout(function(){
                       successMsg.style.display="none";
                       },2000)
         }
+    function resetErrorMsg(erorMsg){
+             erorMsg.innerHTML="";
+    }
 
 
 
-    // function resetBorders(){
-    //      $(":input").removeClass("errors")
-    //      }
-
+  
 
 
 

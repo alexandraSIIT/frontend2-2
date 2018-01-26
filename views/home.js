@@ -111,12 +111,12 @@ function displayMovies(data, elementId) {
             var divButton = document.createElement('div');
             divButton.className = 'button-content';
             
-            var editButton = document.createElement('button');
+            var editButton = document.createElement("button");
             editButton.setAttribute("edit","edit-movie");
             editButton.setAttribute('id', 'edit');
-            editButton.innerHTML = 'Edit';
+            editButton.innerHTML = "Edit";
             editButton.addEventListener("click", function(e) {
-                window.open('editMovie.html?movieId=' + e.path[2].id);
+                window.location.href="editMovie.html?movieId=" + e.path[2].id;
             });
                 
             var deleteButton = document.createElement('button');
