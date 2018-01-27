@@ -1,4 +1,4 @@
-/*global $ Movie Cookie*/
+/*global $ Movie Cookie Auth*/
  $(document).ready(onHtmlLoaded);
  function onHtmlLoaded(){
 
@@ -11,11 +11,36 @@
        const addMovie=new Movie();
        let token= Cookie.findLoggedUserToken();
        const formContent=document.getElementById("addform");
-       const button=document.getElementById("addm");
+       const addButton=document.getElementById("addm");
+       const homeButton=document.getElementById("home")
+       const logoutButton=document.getElementById("logout")
+         //Return to home page
+         homeButton.addEventListener("click",function() {
+           window.location.href = 'home.html'
+           
+          })
+         //Log out functionaliti
+         logoutButton.addEventListener("click",function() {
+        //first we check to see if the user is actualy logged
+          const isUserLogged = Cookie.findLoggedUserToken();        
+        
+                if (isUserLogged) {
+                    Auth.logOutUser(isUserLogged)
+                        .then( () => {
+                            Cookie.deleteTokenCookie();
+                            window.close();
+                        })
+                        .catch(reason => {console.log(reason)});
+                }
+                else {
+                    alert('You are not logged in');
+                }
+         });
+             
+    
    
-
-  
-         button.addEventListener("click",function(validateAndSendData){
+         //add movie functionality
+         addButton.addEventListener("click",function(validateAndSendData){
          validateAndSendData.preventDefault();
       
          const erorMsg=document.getElementById("warningMsg");
@@ -42,8 +67,9 @@
                       resetErrorMsg(erorMsg)
                       
                       
-                 }).catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-         }
+                 })
+                 .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
+                 }
          });
 
 }   

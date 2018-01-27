@@ -23,7 +23,7 @@ function onHtmlLoaded() {
     
     //add movie button
     $("#add-movie").click(() => {
-        window.open("addMovie.html");
+        window.location.href="addMovie.html";
     });
     
     // login, logout buttons;    

@@ -61,8 +61,10 @@ $(document).ready(onHtmlLoaded);
                       
                      resetErrorMsgAndDisplaySuccesMsg(erorMsg,successMsg)
                      returnToHomePage()
-         }).catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-            }
+             })
+             
+            .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
+             }
         
 
 
