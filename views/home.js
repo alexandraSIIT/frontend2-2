@@ -7,6 +7,7 @@ function onHtmlLoaded() {
     checkLoginStatus();
     displayButtonForUserLogged();
     getMovies();
+    displayAutors();
     
     // delete Movie - attach a delegated event handler
     //we are getting the id from the parent div of the clicked delete button
@@ -68,6 +69,7 @@ function getMovies() {
                 alert(reason.responseJSON.message);
         });
 }
+
 
 //first parameter contains the data, second one contains the location where we want the data to be written
 function displayMovies(data, elementId) {
@@ -184,4 +186,60 @@ function searchMovies() {
                 alert(reason.responseJSON.message);
             });
     });
+}
+
+function displayAutors() {
+    
+    const autors = [{
+        name: 'Pantea Andrei',
+        facebook: 'https://www.facebook.com/pantea.andrei.102361',
+        linkedin: 'https://www.linkedin.com/in/andrei-daniel-pantea/'
+    },
+    {
+        name: 'Leoveanu Roxana',
+        facebook: 'https://www.facebook.com/Deeea.Roxi',
+        linkedin: 'https://www.linkedin.com/in/roxana-leoveanu-a34031140'
+    },
+    {
+        name: 'Radan Olga',
+        facebook: 'https://www.facebook.com/olga.radan',
+        linkedin: 'https://www.linkedin.com/in/olga-radan/'
+    },
+    {
+        name: 'Muntean Monica',
+        facebook: 'https://www.facebook.com/monica.muntean13',
+        linkedin: 'https://www.linkedin.com/in/monica-muntean-12569b42/'
+    },
+    {
+        name: 'Bukos Stefan',
+        facebook: 'https://www.facebook.com/adistef82',
+        linkedin: 'https://www.linkedin.com/in/adistef/'
+    },
+    {
+        name: 'Gergo Balogh',
+        facebook: 'https://www.facebook.com/baloghgj',
+        linkedin: 'https://www.linkedin.com/in/gergobalogh/'
+    },
+    {
+        name: 'Asavinei Claudia',
+        facebook: 'https://www.facebook.com/asavineiclaudia.maria',
+        linkedin: 'https://www.linkedin.com/in/claudia-maria-asavinei/'
+    },
+    {
+        name: 'Crisan Ancuta',
+        facebook: 'https://www.facebook.com/crisan.anca93',
+        linkedin: 'http://linkedin.com/in/crisan-ancuta-598b87103'
+    }];
+    
+    
+    for( var i = 0; autors.length; i++) {
+        const blueAutors = document.getElementById('team');
+        const blueAutor = document.createElement('section');
+        
+        console.log(autors[i]);
+        blueAutor.className = 'autor';
+        blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
+                + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
+        blueAutors.appendChild(blueAutor);
+    }
 }

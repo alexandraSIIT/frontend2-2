@@ -394,6 +394,81 @@ html, body {
     text-align: center;
 }
 
+/* youtube */
+
+iframe {
+    width: 99%;
+}
+
+.autor {
+    border: 1px solid black;
+}
+
+.autor p {
+    font-size: 12px;
+}
+
+@media(min-width: 768px){
+    .autor  p {
+        font-size: 18px;
+    }
+}
+
+    .fa {
+      padding: 5px;
+      border-radius: 50%;
+      font-size: 15px;
+      width: 25px;
+      text-align: center;
+      text-decoration: none;
+      /*margin: 5px 2px;*/
+    }
+
+@media(min-width: 768px){
+    .fa {
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 20px;
+      width: 40px;
+      text-align: center;
+      text-decoration: none;
+      /*margin: 5px 2px;*/
+    }
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+  margin-left: 25px;
+}
+
+.autor {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding:15px;
+    box-shadow: 0 6px 10px 0 #bababa, 0 6px 20px 0 #bababa;
+    margin: 15px;
+}
+
+.youtube h2, h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #3B5998;
+}
+
+
 /* Content */
 
 #movieDisplay, #searchDisplay {
