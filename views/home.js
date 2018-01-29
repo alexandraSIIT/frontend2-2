@@ -238,8 +238,19 @@ function displayAutors() {
         
         console.log(autors[i]);
         blueAutor.className = 'autor';
-        blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
-                + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
+        // blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
+        //         + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
+        blueAutor.innerHTML = `<p>${autors[i].name}</p>
+                                <span>
+                                    <a href="${autors[i].facebook}" 
+                                       target="_blank" 
+                                       class="fa fa-facebook">
+                                    </a>
+                                    <a href="${autors[i].linkedin}" 
+                                       target="_blank" 
+                                       class="fa fa-linkedin">
+                                    </a>
+                                </span>`
         blueAutors.appendChild(blueAutor);
     }
 }
