@@ -28,7 +28,7 @@
                     Auth.logOutUser(isUserLogged)
                         .then( () => {
                             Cookie.deleteTokenCookie();
-                            window.close();
+                             window.location.href = 'home.html'
                         })
                         .catch(reason => {console.log(reason)});
                 }
@@ -64,7 +64,7 @@
                 .then(data=>{ 
                       formContent.reset();
                       displayAndRemoveSuccesMsg()
-                      resetErrorMsg(erorMsg)
+                    //   resetErrorMsg(erorMsg)
                       
                       
                  })
@@ -74,8 +74,8 @@
 
 }   
     function validate(movieData,erorMsg){
-             let errors=false
-             erorMsg.innerHTML=""
+             let errors=false;
+             erorMsg.innerHTML="";
              if(movieData.title.val()==""){
                     movieData.title.addClass("errors")
                     erorMsg.innerHTML+=" Title input, "
@@ -143,7 +143,7 @@
                
                setTimeout(function(){
                       successMsg.style.display="none";
-                      },2000)
+                      },3000)
         }
     function resetErrorMsg(erorMsg){
              erorMsg.innerHTML="";
