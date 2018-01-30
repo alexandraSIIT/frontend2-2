@@ -7,7 +7,6 @@ function onHtmlLoaded() {
     checkLoginStatus();
     displayButtonForUserLogged();
     getMovies();
-    displayAutors();
     
     // delete Movie - attach a delegated event handler
     //we are getting the id from the parent div of the clicked delete button
@@ -57,6 +56,8 @@ function onHtmlLoaded() {
     togglebtn.on("click", function(){
         $("#toggle-nav").toggleClass("nav-bar-show");
     });
+
+    displayAutors();
 }
 
 function getMovies() {
@@ -232,11 +233,10 @@ function displayAutors() {
     }];
     
     
-    for( var i = 0; autors.length; i++) {
+    for( let i = 0; autors.length; i++) {
         const blueAutors = document.getElementById('team');
         const blueAutor = document.createElement('section');
         
-        console.log(autors[i]);
         blueAutor.className = 'autor';
         // blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
         //         + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
@@ -250,7 +250,7 @@ function displayAutors() {
                                        target="_blank" 
                                        class="fa fa-linkedin">
                                     </a>
-                                </span>`
+                                </span>`;
         blueAutors.appendChild(blueAutor);
     }
 }
