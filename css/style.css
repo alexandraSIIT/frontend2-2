@@ -82,6 +82,7 @@ html, body {
             margin-right: 20px;
             display:block;
            
+           
             }
     
             
@@ -414,18 +415,18 @@ iframe {
     }
 }
 
-    .fa {
+   .fa-facebook,.fa-linkedin {
       padding: 5px;
       border-radius: 50%;
       font-size: 15px;
       width: 25px;
       text-align: center;
       text-decoration: none;
-      /*margin: 5px 2px;*/
+      margin: 5px 2px;
     }
 
 @media(min-width: 768px){
-    .fa {
+    .fa-facebook,.fa-linkedin {
       padding: 10px;
       border-radius: 50%;
       font-size: 20px;

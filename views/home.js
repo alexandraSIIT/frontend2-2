@@ -232,14 +232,14 @@ function displayAutors() {
     }];
     
     
-    for( var i = 0; autors.length; i++) {
+    for( var i = 0; i<autors.length; i++) {
         const blueAutors = document.getElementById('team');
         const blueAutor = document.createElement('section');
         
-        console.log(autors[i]);
+        console.log("Autor " , i, autors[i]);
         blueAutor.className = 'autor';
-        blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
-                + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
+        blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + '" target="_blank" class="fa fa-facebook"></a>' +' ' 
+                + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin" target="_blank"></a>' + '</span>';
         blueAutors.appendChild(blueAutor);
     }
 }
