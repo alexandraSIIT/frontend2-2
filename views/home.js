@@ -191,6 +191,7 @@ function searchMovies() {
 
 function displayAutors() {
     
+    const blueAutors = document.getElementById('team');
     const autors = [{
         name: 'Pantea Andrei',
         facebook: 'https://www.facebook.com/pantea.andrei.102361',
@@ -234,8 +235,7 @@ function displayAutors() {
     
     
 
-    for( let i = 0; autors.length; i++) {
-        const blueAutors = document.getElementById('team');
+    for( let i = 0; i<autors.length; i++) {
         const blueAutor = document.createElement('section');
         
         blueAutor.className = 'autor';

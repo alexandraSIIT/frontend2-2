@@ -63,8 +63,8 @@
             addMovie.addMovieItem(token,movieData)
                 .then(data=>{ 
                       formContent.reset();
-                      displayAndRemoveSuccesMsg()
-                    //   resetErrorMsg(erorMsg)
+                      handelSuccesMsg()
+                    
                       
                       
                  })
@@ -78,7 +78,7 @@
              erorMsg.innerHTML="";
              if(movieData.title.val()==""){
                     movieData.title.addClass("errors")
-                    erorMsg.innerHTML+=" Title input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true
              }
              else{
@@ -87,7 +87,7 @@
              
              if(movieData.year.val()==""){
                     movieData.year.addClass("errors")
-                    erorMsg.innerHTML+=" Year input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true 
              }
              
@@ -97,7 +97,7 @@
              
              if(movieData.runtime.val()==""){
                     movieData.runtime.addClass("errors")
-                    erorMsg.innerHTML+=" Runtime input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true
              }
              
@@ -107,7 +107,7 @@
              
              if(movieData.genre.val()==""){
                     movieData.genre.addClass("errors")
-                    erorMsg.innerHTML+=" Genre input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true
              }
              else{
@@ -116,7 +116,7 @@
                
              if(movieData.poster.val()==""){
                     movieData.poster.addClass("errors")
-                    erorMsg.innerHTML+=" Poster input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true
              }
              else{
@@ -125,7 +125,7 @@
              
             if(movieData.imdbRating.val()==""){
                     movieData.imdbRating.addClass("errors")
-                    erorMsg.innerHTML+=" Rating input, "
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
                     errors=true
              }
              else{
@@ -136,7 +136,7 @@
              return !errors
                  
             }
-    function displayAndRemoveSuccesMsg(){
+    function handelSuccesMsg(){
         
          const successMsg=document.getElementById("successMsg");
                successMsg.style.display="block"
@@ -145,10 +145,7 @@
                       successMsg.style.display="none";
                       },3000)
         }
-    function resetErrorMsg(erorMsg){
-             erorMsg.innerHTML="";
-    }
-
+ 
 
 
   

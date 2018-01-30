@@ -59,7 +59,7 @@ $(document).ready(onHtmlLoaded);
             movieDetails.editMovie(movieDetails.id,movieData,token)
             .then(data=>{ 
                       
-                     resetErrorMsgAndDisplaySuccesMsg(erorMsg,successMsg)
+                     handelSuccesMsg(successMsg)
                      returnToHomePage()
              })
              
@@ -185,9 +185,9 @@ $(document).ready(onHtmlLoaded);
         
         
     }   
-     function resetErrorMsgAndDisplaySuccesMsg(erorMsg,successMsg){
+     function handelSuccesMsg(successMsg){
                successMsg.style.display="block";
-               erorMsg.innerHTML="";
+           
         }
      function returnToHomePage(){
               setTimeout(function(){
