@@ -2,17 +2,16 @@
 
 $(document).ready(onHtmlLoaded);
 
-     function onHtmlLoaded() {
-     const togglebtn=$(".toggle-icon")
+    function onHtmlLoaded() {
+    const togglebtn=$(".toggle-icon");
          togglebtn.on("click", function(){
-            $("#toggle-nav").toggleClass("nav-bar-show")
-    
-          })
+            $("#toggle-nav").toggleClass("nav-bar-show");
+         });
 
-     const movieDetails = new Movie();
-     const button=document.getElementById("editm");
+    const movieDetails = new Movie();
+    const button=document.getElementById("editm");
 
-     const movieData={
+    const movieData={
         title:$("#title"),
         year:$("#year"),
         runtime:$("#runtime"),
@@ -24,28 +23,26 @@ $(document).ready(onHtmlLoaded);
         imdbVotes:$("#imdbvotes"),
         imdbId:$("#imdbid"),
         typem:$("#typem")
-         }
+    };
 
    //Display article to edit
 
       movieDetails.id = getMovieIdFromUrl();
       movieDetails.getMovieItem().then(displayArticleToEdit);
 
-     function displayArticleToEdit(){
-                movieData.title.val(movieDetails.title);
-                movieData.year.val(movieDetails.year);
-                movieData.runtime.val(movieDetails.runtime);
-                movieData.genre.val(movieDetails.genre);
-                movieData.language.val(movieDetails.language);
-                movieData.country.val(movieDetails.country);
-                movieData.poster.val(movieDetails.poster);
-                movieData.imdbRating.val(movieDetails.imdbRating);
-                movieData.imdbVotes.val(movieDetails.imdbvotes);
-                movieData.imdbId.val(movieDetails.imdbId);
-                movieData.typem.val(movieDetails.type);
+    function displayArticleToEdit(){
+        movieData.title.val(movieDetails.title);
+        movieData.year.val(movieDetails.year);
+        movieData.runtime.val(movieDetails.runtime);
+        movieData.genre.val(movieDetails.genre);
+        movieData.language.val(movieDetails.language);
+        movieData.country.val(movieDetails.country);
+        movieData.poster.val(movieDetails.poster);
+        movieData.imdbRating.val(movieDetails.imdbRating);
+        movieData.imdbVotes.val(movieDetails.imdbvotes);
+        movieData.imdbId.val(movieDetails.imdbId);
+        movieData.typem.val(movieDetails.type);
     }
-
-    
 
      //Edit button functionality
 
@@ -58,18 +55,14 @@ $(document).ready(onHtmlLoaded);
         if(validate(movieData,erorMsg)){
             movieDetails.editMovie(movieDetails.id,movieData,token)
             .then(data=>{ 
-                      
-                     handelSuccesMsg(successMsg)
-                     returnToHomePage()
+                handelSuccesMsg(successMsg);
+                returnToHomePage();
              })
-             
-            .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-             }
-        
-
-
-        })
-
+            .catch(reason=>{
+                handleBadRequest(reason,erorMsg);
+            });
+        } 
+    });
 
 }
      function validate(movieData,erorMsg){
@@ -203,6 +196,12 @@ $(document).ready(onHtmlLoaded);
                             }
                         } 
         }
+     function handleBadRequest(reason,erorMsg){
+         if(reason.status==400){
+             erorMsg.innerHTML=reason.responseJSON.message;
+         }
+         
+     }
 
 
-
+//erorMsg.innerHTML="There was a problem with your submission,you do not have permition to acces this server.Please login!!!"
