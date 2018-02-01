@@ -79,7 +79,7 @@ function displayMovies(data, elementId) {
     var content = document.getElementById(elementId);
     
     if (data.length > 0) {
-    
+        console.log(data);
         for (var i = 0; i < data.length; i++) {
             
             var movieItem = document.createElement("section");
@@ -93,7 +93,13 @@ function displayMovies(data, elementId) {
             divPoster.className = 'poster';
             
             var moviePoster = document.createElement('img');
-            moviePoster.setAttribute('src', data[i].poster );
+            
+            if (data[i].poster == "N/A") {
+                moviePoster.setAttribute('src', '../pages/resources/missing.jpg');    
+            }
+            else 
+                moviePoster.setAttribute('src', data[i].poster);
+                
             moviePoster.className = 'img-movie';
             moviePoster.innerHTML = data[i].poster;
             
