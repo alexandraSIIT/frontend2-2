@@ -172,21 +172,86 @@ function displayButtonForUserLogged() {
 }
 
 function searchMovies() {
-    $("#submitSearch").click( (event) => {
-        event.preventDefault();
-        
-        const movies      = new MoviesList();
-        const selection   = $("#select option:selected").text();
-        const queryString = $("#queryString").val();
-        
-        movies.searchMovies(selection, queryString)
-            .then(() => {
-                displayMovies(movies.model, "searchDisplay");
-            })
-            .catch(reason => {
-                alert(reason.responseJSON.message);
-            });
-    });
+             const movieUrl = "https://ancient-caverns-16784.herokuapp.com";
+    
+             $('[type="search"]').keyup( function (){
+              if(document.getElementById('filmNameOrType').value == ""){
+                const resultsContainer = $('#resultsContainer');
+                resultsContainer.empty();
+               }
+             });
+             
+             $('#searchBtn').click(function(e){
+             e.preventDefault();
+             searchFilm();
+             });
+    
+             $('#filmNameOrType').keypress(function (e) {
+             if (e.which == 13 || event.keyCode == 13) {
+             e.preventDefault();
+             searchFilm();
+                }
+             }); 
+             
+             $(window).click(function() {
+                const resultsContainer = $('#resultsContainer');
+                 resultsContainer.empty();
+               });
+  
+    
+        function searchFilm(){
+             let searchData = document.getElementById("filmNameOrType").value;
+             let queryToSearch = document.getElementsByName("searchBy");
+                 for (var i = 0, length = queryToSearch.length; i < length; i++) {
+                  if(queryToSearch[i].selected == true){
+                      var searchBy = queryToSearch[i].value;
+                  }
+    		    }
+    
+            return $.ajax({
+                  url: movieUrl + "/movies?" +  searchBy + "=^" + searchData,
+                  method: 'GET'
+                  }).then(displayResultsList)
+                  .catch(errorDisplay);
+        }
+    
+        function displayResultsList (response){
+             if(response.results.length == 0){
+              displayError();
+             }
+             else {
+             const resultsContainer = $('#resultsContainer');
+             $('#resultsContainer').removeClass("hiddenObj");
+               for(var i=0; i<response.results.length; i++){
+               let movieFound = response.results[i];
+               movieFound.Id = response.results[i]._id;
+               let htmlMovieItem =  '<div class="movie-item">' +
+                                        '<img class="moviePic" src=' + movieFound.Poster + '>' +
+                                        '<a href=movieDetails.html?movieId=' + movieFound.Id + '>' + movieFound.Title + '</a>' +
+                                    '</div>';
+              resultsContainer.append(htmlMovieItem);
+               }
+             }
+        }
+      
+        function errorDisplay(response){
+              const resultsContainer = $('#resultsContainer');
+              let errorMessage =  '<div class="movie-item">' +
+                                  '<p>' + "Sorry, something went wrong" + '</p>' +
+                                  '</div>';
+              resultsContainer.append(errorMessage);
+              $('#resultsContainer').removeClass("hiddenObj");
+        }
+         
+        function displayError (response){
+              const resultsContainer = $('#resultsContainer');
+              let errorMessageText =  '<div class="movie-item">' +
+                                      '<p>' + " Sorry,  we could not find a match for your search item! " + '</p>' +
+                                      '</div>';
+              resultsContainer.append(errorMessageText);
+              $('#resultsContainer').removeClass("hiddenObj");
+        }
+
 }
 
 function displayAutors() {
@@ -239,8 +304,6 @@ function displayAutors() {
         const blueAutor = document.createElement('section');
         
         blueAutor.className = 'autor';
-        // blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
-        //         + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
         blueAutor.innerHTML = `<p>${autors[i].name}</p>
                                 <span>
                                     <a href="${autors[i].facebook}" 

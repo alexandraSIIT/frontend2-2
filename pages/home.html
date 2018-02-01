@@ -24,15 +24,21 @@
                  </div>
             </div>
                 <div class="nav-bar" id="toggle-nav">
-                    <div class="search">
-                    <select name="select" id="select">
-                        <option value="Title">Title</option>
-                        <option value="Genre">Genre</option>
-                        <option value="Year">Year</option>
-                    </select>
-                    <input class="form-control" type="text" name="queryString" id="queryString" placeholder="Search" required/>
-                    <button id="submitSearch"><span class="glyphicon glyphicon-search"></span></button>
+                  <div class="search">
+                    <div class="containerSearch">
+                      <select class="searchOptions">
+                         <option name="searchBy" value="Title" selected="selected">Title</option>
+                         <option name="searchBy" value="Genre">Genre</option>
+                         <option name="searchBy" value="Actor">Actor</option>
+                      </select>
+                      <form role="search" id="searchBar">
+                         <input type="search" name="filmNameOrType" id="filmNameOrType"  autocomplete="off"></input>
+                         <button id="searchBtn"><span class="glyphicon glyphicon-search"></span></button>
+                      </form>
                     </div>
+                    <div id="resultsContainer" class="container-fluid hiddenObj"></div>
+                </div>
+                
                 <div class="nav-buttons">
                     <button id="login">Login</button>
                     <button id="register"><a href="register.html">Register</a></button>
