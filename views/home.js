@@ -225,6 +225,9 @@ function searchMovies() {
                for(var i=0; i<response.results.length; i++){
                let movieFound = response.results[i];
                movieFound.Id = response.results[i]._id;
+               if(movieFound.Poster === 'N/A') {
+                   movieFound.Poster = '../pages/resources/missing.jpg';
+               }
                let htmlMovieItem =  '<div class="movie-item">' +
                                         '<img class="moviePic" src=' + movieFound.Poster + '>' +
                                         '<a href=movieDetails.html?movieId=' + movieFound.Id + '>' + movieFound.Title + '</a>' +
