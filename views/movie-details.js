@@ -64,8 +64,14 @@ function onHtmlLoaded() {
             var posterContent = document.createElement("div");
             posterContent.className = "image";
             var poster = document.createElement("img");
-            poster.setAttribute("src", movieDetails.poster);
+            if (movieDetails.poster === "N/A") {
+                movieDetails.poster.setAttribute('src', '../pages/resources/missing.jpg');    
+            }
+            else 
+                poster.setAttribute("src", movieDetails.poster);
             poster.id = "imgPoster"
+            }
+            
             
             posterContent.appendChild(poster);
             textContent.appendChild(title);
