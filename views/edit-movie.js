@@ -1,4 +1,4 @@
-/* global $ Movie */
+/* global $ Movie  Cookie*/
 
 $(document).ready(onHtmlLoaded);
 
@@ -10,8 +10,6 @@ $(document).ready(onHtmlLoaded);
           })
 
      const movieDetails = new Movie();
-     const token="09pzCOnnXwyx8VlM-rriX2c5mGZssJ9z";
-     const formContent=document.getElementById("editform");
      const button=document.getElementById("editm");
 
      const movieData={
@@ -34,44 +32,39 @@ $(document).ready(onHtmlLoaded);
       movieDetails.getMovieItem().then(displayArticleToEdit);
 
      function displayArticleToEdit(){
-        movieData.title.val(movieDetails.title);
-        movieData.year.val(movieDetails.year);
-        movieData.runtime.val(movieDetails.runtime);
-        movieData.genre.val(movieDetails.genre);
-        movieData.language.val(movieDetails.language);
-        movieData.country.val(movieDetails.country);
-        movieData.poster.val(movieDetails.poster);
-        movieData.imdbRating.val(movieDetails.imdbRating);
-        movieData.imdbVotes.val(movieDetails.imdbvotes);
-        movieData.imdbId.val(movieDetails.imdbId);
-        movieData.typem.val(movieDetails.type);
-        
+                movieData.title.val(movieDetails.title);
+                movieData.year.val(movieDetails.year);
+                movieData.runtime.val(movieDetails.runtime);
+                movieData.genre.val(movieDetails.genre);
+                movieData.language.val(movieDetails.language);
+                movieData.country.val(movieDetails.country);
+                movieData.poster.val(movieDetails.poster);
+                movieData.imdbRating.val(movieDetails.imdbRating);
+                movieData.imdbVotes.val(movieDetails.imdbvotes);
+                movieData.imdbId.val(movieDetails.imdbId);
+                movieData.typem.val(movieDetails.type);
+    }
+
     
-        }
-
-
 
      //Edit button functionality
 
     button.addEventListener("click",function(validateAndSendData){
         validateAndSendData.preventDefault();
-        const msg=document.getElementById("warningMsg");
+        const erorMsg=document.getElementById("warningMsg");
         const successMsg=document.getElementById("successMsg");
         let token=Cookie.findLoggedUserToken();
     
-        if(validate(movieData)){
-            movieDetails.editMovie(movieDetails.id,movieData)
-        .then(data=>{ 
-              formContent.reset();
-              successMsg.style.display="block";
-              msg.innerHTML="";
-              setBorders();
-              setTimeout(function(){
-              successMsg.style.display="none";
-              window.location.href = 'home.html'
-               },3000)
-         }).catch(reason=>msg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-            }else{errors(msg)}
+        if(validate(movieData,erorMsg)){
+            movieDetails.editMovie(movieDetails.id,movieData,token)
+            .then(data=>{ 
+                      
+                     handelSuccesMsg(successMsg)
+                     returnToHomePage()
+             })
+             
+            .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
+             }
         
 
 
@@ -79,44 +72,136 @@ $(document).ready(onHtmlLoaded);
 
 
 }
-    function validate(movieData){
-        return (movieData.title.val()!=="" && movieData.year.val()!=="" && !isNaN(movieData.year.val()) && movieData.runtime.val()!=="" && movieData.genre.val()!="" && movieData.language.val()!=="" && movieData.country.val()!=="" && movieData.poster.val()!=="" && movieData.imdbRating.val()!=="" && movieData.imdbVotes.val()!=="" &&  movieData.imdbId.val()!=="" && movieData.typem.val()!=="")?true:false};
-
-
-    function errors(msg){
-        const movieInputs= $(".formimput")
-        movieInputs.each(function(i){
-
-        if(this.value==""){
-        msg.innerHTML="There was a problem with your submission. Please fill in the "+this.id+" input";
-        $(this).addClass("errors");
-        return false}
-        else{$(this).removeClass("errors");msg.innerHTML=""}
-        //Year input
-        if(isNaN(movieInputs[1].value)){
-        msg.innerHTML="There was a problem with your submission. Expected a number in Year field"; 
-        $(movieInputs[1]).addClass("errors")
-            return false
-        }else{$(movieInputs[1]).removeClass("errors");msg.innerHTML=""}
-
-        })
-
-     }
- 
-
-
-    function setBorders(){
-        $(":input").removeClass("errors")
+     function validate(movieData,erorMsg){
+         let errors=false
+             erorMsg.innerHTML=""
+             if(movieData.title.val()==""){
+                    movieData.title.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                    movieData.title.removeClass("errors")
+             }
+             
+             if(movieData.year.val()==""){
+                    movieData.year.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true 
+             }
+             
+             else{
+                     movieData.year.removeClass("errors")
+             }
+             
+             if(movieData.runtime.val()==""){
+                    movieData.runtime.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             
+             else{
+                     movieData.runtime.removeClass("errors")
+             }
+             
+             if(movieData.genre.val()==""){
+                    movieData.genre.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.genre.removeClass("errors")
+             }
+             
+              if(movieData.language.val()==""){
+                    movieData.language.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.language.removeClass("errors")
+             }
+             
+              if(movieData.country.val()==""){
+                    movieData.country.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.country.removeClass("errors")
+             }
+             
+             if(movieData.poster.val()==""){
+                    movieData.poster.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                    movieData.poster.removeClass("errors")
+             }
+             
+            if(movieData.imdbRating.val()==""){
+                    movieData.imdbRating.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                    movieData.imdbRating.removeClass("errors")
+             }
+             
+               if(movieData.imdbVotes.val()==""){
+                    movieData.imdbVotes.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.imdbVotes.removeClass("errors")
+             }
+             
+               if(movieData.imdbId.val()==""){
+                    movieData.imdbId.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.imdbId.removeClass("errors")
+             }
+             
+               if(movieData.typem.val()==""){
+                    movieData.typem.addClass("errors")
+                    erorMsg.innerHTML="Pleas fill in the highlight imputs"
+                    errors=true
+             }
+             else{
+                     movieData.typem.removeClass("errors")
+             }
+           
+             return !errors
+                 
+        
+        
+        
+        
+        
+        
+    }   
+     function handelSuccesMsg(successMsg){
+               successMsg.style.display="block";
+           
         }
-
-    function getMovieIdFromUrl() {
-        const  url = window.location.search.substring(1).split('=');
-                    
-        for(var i = 0; i < url.length; i++) {
-            if (url[0]=== "movieId") {
-            return url[1];
-                    }
-                } 
+     function returnToHomePage(){
+              setTimeout(function(){
+                      window.location.href = 'home.html'
+                       },2000)
+     }
+     function getMovieIdFromUrl() {
+                const  url = window.location.search.substring(1).split('=');
+                            
+                for(var i = 0; i < url.length; i++) {
+                    if (url[0]=== "movieId") {
+                    return url[1];
+                            }
+                        } 
         }
 
 

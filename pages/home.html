@@ -9,7 +9,6 @@
         <script type="text/javascript" src="../models/Movie.js"></script>
         <script src="../models/Auth.js"></script>
         <script src="../models/Cookie.js"></script>
-        <script src="../views/search.js"></script>
         <script type="text/javascript" src="../models/MoviesList.js"></script>
         <script type="text/javascript" src="../views/home.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -21,26 +20,11 @@
             <div class="logo">
                 <img src="..\pages\resources\logofinal1.1.png" class="imgLogo"></img>
                  <div class="toggle-icon">
-                 <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
+                  <i class="fa fa-bars fa-3x" aria-hidden="true" ></i>
                  </div>
             </div>
-            <div class="nav-bar" id="toggle-nav">
-                <div class="nav-buttons">
-                    <button id="add-movie">Add movie</button>
-                    <button id="login">Login</button>
-                    <button id="logout">Logout</button>
-                    <p id="user-name"></p>
-                </div>
-            </div>
-        </header>  
-        <div id="container">
-            <div class="col-md-2">
-            </div>
-            <div id="searchDisplay">
-            </div>
-            <div id="movieDisplay" class="col-md-8">
-                <div class="container">
-                <form>
+                <div class="nav-bar" id="toggle-nav">
+                    <div class="search">
                     <select name="select" id="select">
                         <option value="Title">Title</option>
                         <option value="Genre">Genre</option>
@@ -48,11 +32,44 @@
                     </select>
                     <input class="form-control" type="text" name="queryString" id="queryString" placeholder="Search" required/>
                     <button id="submitSearch"><span class="glyphicon glyphicon-search"></span></button>
-                </form>
+                    </div>
+                <div class="nav-buttons">
+                    <button id="login">Login</button>
+                    <button id="register"><a href="register.html">Register</a></button>
+                    <button id="add-movie">Add movie</button>
+                    <button id="logout">Logout</button>
+                    <p id="user-name"></p>
                 </div>
             </div>
-            <div class="col-md-2">
+        </header>  
+        <div id=container>
+            <div class="col-md-4">
+                
             </div>
+            <div id="searchDisplay" class="col-md-4">
+        
+            </div>
+            <div class="col-md-4">
+                
+            </div>
+            
+            
+        </div>
+        <div id="container">
+            <div id="movieDisplay" class="col-md-8">
+            
+            </div>
+            <div class="col-md-4 youtube">
+                <h2>The most popular 250 movies on IMDB!</h2>
+                <iframe width="400" height="300" src="https://www.youtube.com/embed/U0x9HtYgVqA?autoplay=1" 
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                
+                <h3>Created by the fancy <strong>Blue Team:</strong></h3>
+                <div id="team">
+                    
+                </div>
+            </div>
+        
         </div>
         <div class="footer">Copyright &copy; Blue TEAM 2018: All rights reserved! </div>
     </body>

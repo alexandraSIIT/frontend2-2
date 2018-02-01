@@ -23,7 +23,7 @@ function onHtmlLoaded() {
     
     //add movie button
     $("#add-movie").click(() => {
-        window.open("addMovie.html");
+        window.location.href="addMovie.html";
     });
     
     // login, logout buttons;    
@@ -56,6 +56,8 @@ function onHtmlLoaded() {
     togglebtn.on("click", function(){
         $("#toggle-nav").toggleClass("nav-bar-show");
     });
+
+    displayAutors();
 }
 
 function getMovies() {
@@ -68,6 +70,7 @@ function getMovies() {
                 alert(reason.responseJSON.message);
         });
 }
+
 
 //first parameter contains the data, second one contains the location where we want the data to be written
 function displayMovies(data, elementId) {
@@ -111,12 +114,12 @@ function displayMovies(data, elementId) {
             var divButton = document.createElement('div');
             divButton.className = 'button-content';
             
-            var editButton = document.createElement('button');
+            var editButton = document.createElement("button");
             editButton.setAttribute("edit","edit-movie");
             editButton.setAttribute('id', 'edit');
-            editButton.innerHTML = 'Edit';
+            editButton.innerHTML = "Edit";
             editButton.addEventListener("click", function(e) {
-                window.open('editMovie.html?movieId=' + e.path[2].id);
+                window.location.href="editMovie.html?movieId=" + e.path[2].id;
             });
                 
             var deleteButton = document.createElement('button');
@@ -127,6 +130,7 @@ function displayMovies(data, elementId) {
             if (!userToken) {
                 editButton.setAttribute('class', 'hide');
                 deleteButton.setAttribute('class', 'hide');
+                document.getElementById('user-name').setAttribute('class', 'hide');
             }
             
             divPoster.appendChild(moviePoster);
@@ -145,7 +149,7 @@ function displayMovies(data, elementId) {
 }
 
 function deleteMovieItem(id){
-    $(`#${id}`).remove()
+    $(`#${id}`).remove();
 }
  
 function checkLoginStatus() {
@@ -159,6 +163,7 @@ function displayButtonForUserLogged() {
     const userLogin = Cookie.findLoggedUserToken();
     if (userLogin) {
         document.getElementById('login').style.display = "none";
+        document.getElementById('register').style.display = "none";
     } 
     else {
         document.getElementById('add-movie').style.display = "none";
@@ -182,4 +187,72 @@ function searchMovies() {
                 alert(reason.responseJSON.message);
             });
     });
+}
+
+function displayAutors() {
+    
+    const blueAutors = document.getElementById('team');
+    const autors = [{
+        name: 'Pantea Andrei',
+        facebook: 'https://www.facebook.com/pantea.andrei.102361',
+        linkedin: 'https://www.linkedin.com/in/andrei-daniel-pantea/'
+    },
+    {
+        name: 'Leoveanu Roxana',
+        facebook: 'https://www.facebook.com/Deeea.Roxi',
+        linkedin: 'https://www.linkedin.com/in/roxana-leoveanu-a34031140'
+    },
+    {
+        name: 'Radan Olga',
+        facebook: 'https://www.facebook.com/olga.radan',
+        linkedin: 'https://www.linkedin.com/in/olga-radan/'
+    },
+    {
+        name: 'Muntean Monica',
+        facebook: 'https://www.facebook.com/monica.muntean13',
+        linkedin: 'https://www.linkedin.com/in/monica-muntean-12569b42/'
+    },
+    {
+        name: 'Bukos Stefan',
+        facebook: 'https://www.facebook.com/adistef82',
+        linkedin: 'https://www.linkedin.com/in/adistef/'
+    },
+    {
+        name: 'Gergo Balogh',
+        facebook: 'https://www.facebook.com/baloghgj',
+        linkedin: 'https://www.linkedin.com/in/gergobalogh/'
+    },
+    {
+        name: 'Asavinei Claudia',
+        facebook: 'https://www.facebook.com/asavineiclaudia.maria',
+        linkedin: 'https://www.linkedin.com/in/claudia-maria-asavinei/'
+    },
+    {
+        name: 'Crisan Ancuta',
+        facebook: 'https://www.facebook.com/crisan.anca93',
+        linkedin: 'http://linkedin.com/in/crisan-ancuta-598b87103'
+    }];
+    
+    
+
+    for( let i = 0; i<autors.length; i++) {
+        const blueAutor = document.createElement('section');
+        
+        blueAutor.className = 'autor';
+        // blueAutor.innerHTML = '<p>' + autors[i].name + '</p>' + '<span>' +'<a href="'+ autors[i].facebook + 'target="_blank"' + '" class="fa fa-facebook"></a>' +' ' 
+        //         + '<a href="' + autors[i].linkedin +'" class="fa fa-linkedin"></a>' + '</span>';
+        blueAutor.innerHTML = `<p>${autors[i].name}</p>
+                                <span>
+                                    <a href="${autors[i].facebook}" 
+                                       target="_blank" 
+                                       class="fa fa-facebook">
+                                    </a>
+                                    <a href="${autors[i].linkedin}" 
+                                       target="_blank" 
+                                       class="fa fa-linkedin">
+                                    </a>
+                                </span>`;
+
+        blueAutors.appendChild(blueAutor);
+    }
 }

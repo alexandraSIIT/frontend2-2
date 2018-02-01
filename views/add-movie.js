@@ -1,6 +1,6 @@
-
+/*global $ Movie Cookie Auth*/
  $(document).ready(onHtmlLoaded);
-function onHtmlLoaded(){
+ function onHtmlLoaded(){
 
         //  function for toggle nav-bar
        const togglebtn=$(".toggle-icon")
@@ -11,114 +11,144 @@ function onHtmlLoaded(){
        const addMovie=new Movie();
        let token= Cookie.findLoggedUserToken();
        const formContent=document.getElementById("addform");
-       const button=document.getElementById("addm");
+       const addButton=document.getElementById("addm");
+       const homeButton=document.getElementById("home")
+       const logoutButton=document.getElementById("logout")
+         //Return to home page
+         homeButton.addEventListener("click",function() {
+           window.location.href = 'home.html'
+           
+          })
+         //Log out functionaliti
+         logoutButton.addEventListener("click",function() {
+        //first we check to see if the user is actualy logged
+          const isUserLogged = Cookie.findLoggedUserToken();        
+        
+                if (isUserLogged) {
+                    Auth.logOutUser(isUserLogged)
+                        .then( () => {
+                            Cookie.deleteTokenCookie();
+                             window.location.href = 'home.html'
+                        })
+                        .catch(reason => {console.log(reason)});
+                }
+                else {
+                    alert('You are not logged in');
+                }
+         });
+             
+    
    
+         //add movie functionality
+         addButton.addEventListener("click",function(validateAndSendData){
+         validateAndSendData.preventDefault();
+      
+         const erorMsg=document.getElementById("warningMsg");
+        
+         const movieData={
+                  title:$("#title"),
+                  year:$("#year"),
+                  runtime:$("#runtime"),
+                  genre:$("#genre"),
+                  language:$("#language"),
+                  country:$("#country"),
+                  poster:$("#poster"),
+                  imdbRating:$("#imdbrating"),
+                  imdbVotes:$("#imdbvotes"),
+                  imdbId:$("#imdbid"),
+                  typem:$("#typem")
+         }
+       
+        if(validate(movieData,erorMsg)){
+            addMovie.addMovieItem(token,movieData)
+                .then(data=>{ 
+                      formContent.reset();
+                      handelSuccesMsg()
+                    
+                      
+                      
+                 })
+                 .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
+                 }
+         });
+
+}   
+    function validate(movieData,erorMsg){
+             let errors=false;
+             erorMsg.innerHTML="";
+             if(movieData.title.val()==""){
+                    movieData.title.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true
+             }
+             else{
+                    movieData.title.removeClass("errors")
+             }
+             
+             if(movieData.year.val()==""){
+                    movieData.year.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true 
+             }
+             
+             else{
+                     movieData.year.removeClass("errors")
+             }
+             
+             if(movieData.runtime.val()==""){
+                    movieData.runtime.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true
+             }
+             
+             else{
+                     movieData.runtime.removeClass("errors")
+             }
+             
+             if(movieData.genre.val()==""){
+                    movieData.genre.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true
+             }
+             else{
+                     movieData.genre.removeClass("errors")
+             }
+               
+             if(movieData.poster.val()==""){
+                    movieData.poster.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true
+             }
+             else{
+                    movieData.poster.removeClass("errors")
+             }
+             
+            if(movieData.imdbRating.val()==""){
+                    movieData.imdbRating.addClass("errors")
+                    erorMsg.innerHTML="The highlight imputs are required, pleas fill them in"
+                    errors=true
+             }
+             else{
+                    movieData.imdbRating.removeClass("errors")
+             }
+             
+           
+             return !errors
+                 
+            }
+    function handelSuccesMsg(){
+        
+         const successMsg=document.getElementById("successMsg");
+               successMsg.style.display="block"
+               
+               setTimeout(function(){
+                      successMsg.style.display="none";
+                      },3000)
+        }
+ 
+
 
   
-     button.addEventListener("click",function(validateAndSendData){
-       validateAndSendData.preventDefault();
-       const msg=document.getElementById("warningMsg");
-       const successMsg=document.getElementById("successMsg")
-     
-       const movieData={
-          title:$("#title"),
-          year:$("#year"),
-          runtime:$("#runtime"),
-          genre:$("#genre"),
-          language:$("#language"),
-          country:$("#country"),
-          poster:$("#poster"),
-          imdbRating:$("#imdbrating"),
-          imdbVotes:$("#imdbvotes"),
-          imdbId:$("#imdbid"),
-          typem:$("#typem")
-         }
-    
-    
-         if(validate(movieData)){
-         addMovie.addMovieItem(token,movieData)
-         .then(data=>{ 
-              formContent.reset();
-              successMsg.style.display="block";
-              msg.innerHTML="";
-              setBorders();
-              setTimeout(function(){
-              successMsg.style.display="none";
-               },3000)
-         }).catch(reason=>msg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-        }else{errors(msg)}
-        
-    //     function submitedSuccess(successMsg,msg,formContent){ 
-    //     formContent.reset();
-    //     successMsg.style.display="block";
-    //     msg.innerHTML="";
-    //     setBorders();
-    
-  
-    //   setTimeout(function(){
-    //     successMsg.style.display="none";
-    //     },3000)
-    //   };
-
-     
-       });
-
-
-
-}
-    function validate(movieData){
-        return (movieData.title.val()!=="" && movieData.year.val()!=="" && !isNaN(movieData.year.val()) && movieData.runtime.val()!=="" && movieData.genre.val()!="" && movieData.language.val()!=="" && movieData.country.val()!=="" && movieData.poster.val()!=="" && movieData.imdbRating.val()!=="" && movieData.imdbVotes.val()!=="" &&  movieData.imdbId.val()!=="" && movieData.typem.val()!=="")?true:false};
-   
-
-    
-   
-
-    
-
-
-    function errors(msg){
-         const movieInputs= $(".formimput")
-         movieInputs.each(function(i){
-       
-          if(this.value==""){
-            msg.innerHTML="There was a problem with your submission. Please fill in the "+this.id+" input";
-            $(this).addClass("errors");
-            return false}
-            else{$(this).removeClass("errors");msg.innerHTML=""}
-            //Year input
-          if(isNaN(movieInputs[1].value)){
-            msg.innerHTML="There was a problem with your submission. Expected a number in Year field"; 
-            $(movieInputs[1]).addClass("errors")
-            return false
-            }else{$(movieInputs[1]).removeClass("errors");msg.innerHTML=""}
-
-           })
-    
-       }
-
-
-    function setBorders(){
-         $(":input").removeClass("errors")
-         }
-
-// function getCookiesAsObject(){
-//           const cookiesString=document.cookie;
-//           const cookiesArray=cookiesString.split("; ");
-//           console.log(cookiesArray);
-//           const cookies={};
-       
-//           cookiesArray.forEach(function (e){
-//           const cookie=e.split("=");
-//           const value=cookie[0];
-//           const key=cookie[1];
-        
-//           cookies[value]=key;
-          
-//           })
-        
-//           return cookies;
-          
-//       };
 
 
 

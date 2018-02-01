@@ -7,6 +7,7 @@
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script type="text/javascript" src="../models/Movie.js"></script>
         <script type="text/javascript" src="../models/Cookie.js"></script>
+        <script type="text/javascript" src="../models/Auth.js"></script>
         <script type="text/javascript" src="../views/add-movie.js"></script>
         <script type="text/javascript" src="../views/login.js"></script>
 
@@ -24,20 +25,8 @@
         </div>
             
              <div class="nav-bar" id="toggle-nav">
-             <div class="search">
-                        <div class="input-group stylish-input-group">
-                            <input type="text" class="form-control"  placeholder="Search" >
-                            <span class="input-group-addon">
-                                <button type="submit">
-                                    <span class="glyphicon glyphicon-search"></span>
-                                </button>  
-                            </span>
-                        </div>
-            </div>
-            
-            <div class="nav-buttons">
-                <!--<button id="add-movie">Add movie</button>-->
-                <!--<button id="login">Login</button>-->
+             <div class="nav-buttons">
+                <button id="home">Home</button>
                 <button id="logout">Logout</button>
             </div>
         </div>         
@@ -51,34 +40,34 @@
 
             <div class="firstRow">
                 <div class="formDiv">
-                    <p id="titleIssues"></p>
+                   
                     <label class="formlabel"  for="title">Title</label>
-                    <input class="formimput" type="text" id="title" name="new_title" value="">
+                    <input class="formimput required" type="text" id="title" name="new_title" value="">
                    
                 </div>
                 <div class="formDiv">
-                    <p id="yearIssues"></p>
+                
                     <label class="formlabel" for="year">Year</label>
-                    <input class="formimput " type="text" id="year" name="new_year" value="">
+                    <input class="formimput required" type="text" id="year" name="new_year" value="">
                 </div>
             </div>
 
 
             <div class="secondRow">
                 <div class="formDiv">
-                    <p id="runtimeIssues"></p>
+                  
                     <label class="formlabel"  for="runtime">Runtime</label>
-                    <input class="formimput" type="text" id="runtime" name="new_runtime" value="">
+                    <input class="formimput required" type="text" id="runtime" name="new_runtime" value="">
                    
                 </div>
                 <div class="formDiv">
-                    <p id="genreIssues"></p>
+                  
                     <label class="formlabel"  for="genre">Genre</label>
-                    <input class="formimput" type="text" id="genre" name="new_genre" value="">
+                    <input class="formimput required" type="text" id="genre" name="new_genre" value="">
                    
                 </div>
                 <div class="formDiv">
-                    <p id="languageIssues"></p>
+                  
                     <label class="formlabel"  for="language">Language</label>
                     <input class="formimput" type="text" id="language" name="new_language" value="">
                     
@@ -87,19 +76,19 @@
 
             <div class="thirdRow">
                 <div class="formDiv">
-                    <p id="countryIssues"></p>
+                  
                     <label class="formlabel"  for="country">Country</label>
                     <input class="formimput" type="text" id="country" name="new_country" value="">
                    
                 </div>
                 <div class="formDiv">
-                    <p id="posterIssues"></p>
+                 
                     <label class="formlabel"  for="poster">Poster</label>
                     <input class="formimput" type="text" id="poster" name="new_poster" value="">
                     
                 </div>
                 <div class="formDiv">
-                    <p id="imdbrIssues"></p>
+                  
                     <label class="formlabel"  for="imdbrating">ImdbRating</label>
                     <input class="formimput" type="text" id="imdbrating" name="new_imdbrating" value="">
                    
@@ -108,19 +97,19 @@
 
             <div class="fourthRow">
                 <div class="formDiv">
-                    <p id="imdbvIssues"></p>
+                    
                     <label class="formlabel"  for="imdbvotes">ImdbVotes</label>
                     <input class="formimput " type="text" id="imdbvotes" name="new_imdbvotes" value="">
                     
                 </div>
                 <div class="formDiv">
-                    <p id="imdbIdIssues"></p>
+                  
                     <label class="formlabel"  for="imdbid">ImdbId</label>
                     <input class="formimput" type="text" id="imdbid" name="new_imdbid" value="">
                    
                 </div>
                 <div class="formDiv">
-                    <p id="typeIssues"></p>
+                  
                     <label class="formlabel"  for="typem">Type</label>
                     <input class="formimput" type="text" id="typem" name="new_typem">
                     

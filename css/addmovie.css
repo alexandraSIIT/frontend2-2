@@ -1,4 +1,4 @@
-*{
+ *{
   margin: 0;
   box-sizing: border-box;
   font-family:Georgia, serif;
@@ -110,9 +110,10 @@ body {
               position: relative;
               display: flex;
               flex-direction: row;
-              justify-content: space-between;
+              justify-content: flex-end;
               align-items:center;
               width: 70%; 
+            
               
            } 
      }
@@ -123,54 +124,14 @@ body {
          }
      }
   
-  
-  /* Search */
-  
-  .search { 
-      display: flex;
-      flex-direction: row;
-     
-      width: 100%;
-  
-      align-items: center; 
-    
-     
-  }
-  
-  .input-group-addon {
-      border: none;
-   }
-   
-   .glyphicon-search {
-       border: none;
-   }
-  
-  @media(min-width:768px){
-      .search{
-         width: 58%; 
-       
-       
-      }
-  
-  }
-  
-  @media(min-width:1024px){
-      .search{
-         width: 60%; 
-         margin-left: 50px;
-         
-      }
-  
-  }
-  
-  
-  /* Nav buttons div */
+
   .nav-buttons{
       display: flex;
       flex-direction: column;
       width: 100%;
       align-items: center;
       justify-content: space-between;
+     
   
   }
   
@@ -178,8 +139,8 @@ body {
    .nav-buttons {
       display: flex;
       flex-direction: row;
-      width:40%;
-      justify-content: center;
+      width:60%;
+      justify-content:flex-end;
       align-items: center;
       
     
@@ -190,51 +151,15 @@ body {
        
          width:31%;
          justify-content:flex-end;
-         margin-right: 10px;
+         margin-right: 30px;
      
      } 
      }
    
   /* Nav buttons */
-  #add-movie {
-      background-color: #5a5a5a;
-      border: none;
-      color: white;
-      width: 100%;
-      padding: 2px;
-      margin: 1px;
-      height: 40px;
-      text-align: center;
-      text-decoration: none;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 5px;
-  }
-  @media(min-width:768px){
-      #add-movie {
-          width:auto;
-          height: auto;
-          font-size: 14px;
-          padding: 2px 5px;
-          margin-left: 5px;
-          margin-right: 5px;
-      }
-  }
   
-  @media(min-width:1024px){
-      #add-movie {
-        
-          font-size: 17px;
   
-         }
-      }
-  
-  #add-movie:hover {
-      background-color: #337ab7;
-      color: white; 
-  }
-  
-  #login {
+  #home {
       background-color: #5a5a5a;
       border: none;
       color: white;
@@ -250,23 +175,23 @@ body {
   }
   
   @media(min-width:768px){
-      #login {
-          width: auto;
+      #home {
+          width: 120px;
           font-size: 14px;
-          height: auto;
+          height: 40px;
           padding: 2px 5px;
-          margin-right: 5px; 
+          margin:0px 10px; 
   
       }
   }
   @media(min-width:1024px){
-      #login {
+      #home{
         
-          font-size: 17px;
+          font-size: 18px;
          }
   
       }
-  #login:hover {
+  #home:hover {
       background-color: #337ab7;
   }
   
@@ -287,18 +212,18 @@ body {
   }
   @media(min-width:768px){
       #logout{
-          width:auto;
+         width: 120px;
           font-size: 14px;
-          height: auto;
+          height: 40px;
           padding: 2px 5px;
-          margin-right: 5px;
+          margin:0px 10px; 
           
       }
   }
   @media(min-width:1024px){
       #logout {
         
-          font-size: 17px;
+          font-size: 18px;
          }
       }
   
