@@ -308,8 +308,10 @@ p {
     padding-left: 10px;
 }
 #imgPoster {
- width: 100%;
- height: auto;
+ /*width: 100%;*/
+ width: 200px;
+ height: 350px;
+ /*height: auto;*/
  padding: 10px;
 }
 

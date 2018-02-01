@@ -65,11 +65,12 @@ function onHtmlLoaded() {
             posterContent.className = "image";
             var poster = document.createElement("img");
             if (movieDetails.poster === "N/A") {
-                movieDetails.poster.setAttribute('src', '../pages/resources/missing.jpg');    
+                poster.setAttribute('src', '../pages/resources/missing.jpg');    
+                poster.id = "imgPoster";
             }
-            else 
+            else {
                 poster.setAttribute("src", movieDetails.poster);
-            poster.id = "imgPoster"
+                poster.id = "imgPoster";
             }
             
             
