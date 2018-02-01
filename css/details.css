@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Georgia, serif;
+  font-family: 'Roboto Slab', serif;
 }
 
 /*body {*/
@@ -271,7 +271,7 @@ p {
     
 }
 #titleMovie {
-    font-family: 'Risque', cursive;
+    font-family: 'Roboto Slab', serif;
     font-size: 20px;
     font-weight: bold;
     
