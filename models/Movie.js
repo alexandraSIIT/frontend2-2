@@ -77,7 +77,11 @@ Movie.prototype.editMovie = function(id,movieData,token) {
               },
        success: function(response) {
            console.log(response);
-       }
+       },
+       error:function(xhr, status, err){
+       
+        console.log("error response", xhr);
+        },
     });
 };
 

@@ -17,10 +17,13 @@ function onHtmlLoaded() {
             }
         
         } 
-        
-        
-            
     }
+ // login, logout buttons;    
+    $('#login').click( () => {
+        window.location.href = 'login.html';
+    });
+    
+// append movies
 
     var movieDetails = new Movie();
     movieDetails.id = getMovieIdFromUrl();

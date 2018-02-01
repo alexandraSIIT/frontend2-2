@@ -3,22 +3,22 @@
  function onHtmlLoaded(){
 
         //  function for toggle nav-bar
-       const togglebtn=$(".toggle-icon")
+       const togglebtn=$(".toggle-icon");
            togglebtn.on("click", function(){
-           $("#toggle-nav").toggleClass("nav-bar-show")
+           $("#toggle-nav").toggleClass("nav-bar-show");
    
-           }) 
+           }); 
        const addMovie=new Movie();
        let token= Cookie.findLoggedUserToken();
        const formContent=document.getElementById("addform");
        const addButton=document.getElementById("addm");
-       const homeButton=document.getElementById("home")
-       const logoutButton=document.getElementById("logout")
+       const homeButton=document.getElementById("home");
+       const logoutButton=document.getElementById("logout");
          //Return to home page
-         homeButton.addEventListener("click",function() {
-           window.location.href = 'home.html'
+           homeButton.addEventListener("click",function() {
+           window.location.href = 'home.html';
            
-          })
+          });
          //Log out functionaliti
          logoutButton.addEventListener("click",function() {
         //first we check to see if the user is actualy logged
@@ -28,7 +28,7 @@
                     Auth.logOutUser(isUserLogged)
                         .then( () => {
                             Cookie.deleteTokenCookie();
-                             window.location.href = 'home.html'
+                             window.location.href = 'home.html';
                         })
                         .catch(reason => {console.log(reason)});
                 }
@@ -37,40 +37,35 @@
                 }
          });
              
-    
-   
          //add movie functionality
-         addButton.addEventListener("click",function(validateAndSendData){
-         validateAndSendData.preventDefault();
+     addButton.addEventListener("click",function(validateAndSendData){
+     validateAndSendData.preventDefault();
       
          const erorMsg=document.getElementById("warningMsg");
-        
          const movieData={
-                  title:$("#title"),
-                  year:$("#year"),
-                  runtime:$("#runtime"),
-                  genre:$("#genre"),
-                  language:$("#language"),
-                  country:$("#country"),
-                  poster:$("#poster"),
-                  imdbRating:$("#imdbrating"),
-                  imdbVotes:$("#imdbvotes"),
-                  imdbId:$("#imdbid"),
-                  typem:$("#typem")
-         }
+              title:$("#title"),
+              year:$("#year"),
+              runtime:$("#runtime"),
+              genre:$("#genre"),
+              language:$("#language"),
+              country:$("#country"),
+              poster:$("#poster"),
+              imdbRating:$("#imdbrating"),
+              imdbVotes:$("#imdbvotes"),
+              imdbId:$("#imdbid"),
+              typem:$("#typem")
+         };
        
         if(validate(movieData,erorMsg)){
             addMovie.addMovieItem(token,movieData)
                 .then(data=>{ 
                       formContent.reset();
-                      handelSuccesMsg()
+                      handelSuccesMsg();
                     
-                      
-                      
-                 })
-                 .catch(reason=>erorMsg.innerHTML="There was a problem with your submition,you do not have permition to acces this server.Please login!!!")
-                 }
-         });
+                })
+                 .catch(reason=>erorMsg.innerHTML="There was a problem with your submission,you do not have permission to access this server.Please login!!!");
+        }
+    });
 
 }   
     function validate(movieData,erorMsg){

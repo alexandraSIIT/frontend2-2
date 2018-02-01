@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Roboto Slab', serif;
+  font-family: Roboto;
 }
 
 /*body {*/
@@ -118,26 +118,25 @@
        }
        
    /* Nav buttons div */
-    .nav-buttons{
+   .nav-buttons{
         display: flex;
         flex-direction: column;
         width: 100%;
         align-items: center;
         justify-content: space-between;
-    
     }
     
     @media(min-width:768px){
      .nav-buttons {
         display: flex;
-        flex-direction: row;
-        width:40%;
+        flex-direction: column;
+        width:35%;
         justify-content: center;
         align-items: center;
-        
       
-    } 
+        } 
     }
+    
     @media(min-width:1024px){
         .nav-buttons {
          
@@ -145,54 +144,53 @@
            justify-content:flex-end;
            margin-right: 10px;
        
-       } 
+           } 
        }
      
     /* Nav buttons */
-    #add-movie {
-        background-color: #5a5a5a;
-        border: none;
-        color: white;
-        width: 100%;
-        padding: 2px;
-        margin: 1px;
-        height: 40px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-    @media(min-width:768px){
-        #add-movie {
-            width:auto;
-            height: auto;
-            font-size: 14px;
-            padding: 2px 5px;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-    }
+    /*#add-movie {*/
+    /*    background-color: #5a5a5a;*/
+    /*    border: none;*/
+    /*    color: white;*/
+    /*    width: 100%;*/
+    /*    padding: 2px;*/
+    /*    margin: 1px;*/
+    /*    height: 40px;*/
+    /*    text-align: center;*/
+    /*    text-decoration: none;*/
+    /*    font-size: 16px;*/
+    /*    cursor: pointer;*/
+    /*    border-radius: 5px;*/
+    /*}*/
+    /*@media(min-width:768px){*/
+    /*    #add-movie {*/
+    /*        width:auto;*/
+    /*        height: auto;*/
+    /*        font-size: 14px;*/
+    /*        padding: 2px 5px;*/
+    /*        margin-left: 5px;*/
+    /*        margin-right: 5px;*/
+    /*    }*/
+    /*}*/
     
-    @media(min-width:1024px){
-        #add-movie {
+    /*@media(min-width:1024px){*/
+    /*    #add-movie {*/
           
-            font-size: 17px;
+    /*        font-size: 17px;*/
     
-           }
-        }
+    /*       }*/
+    /*    }*/
     
-    #add-movie:hover {
-        background-color: #337ab7;
-        color: white; 
-    }
+    /*#add-movie:hover {*/
+    /*    background-color: #337ab7;*/
+    /*    color: white; */
+    /*}*/
     
     #login {
         background-color: #5a5a5a;
         border: none;
         color: white;
         width: 100%;
-        padding: 2px;
         margin: 1px;
         height: 40px;
         text-align: center;
@@ -204,11 +202,11 @@
     
     @media(min-width:768px){
         #login {
-            width: auto;
-            font-size: 14px;
+            width:auto;
+            font-size: 13px;
             height: auto;
-            padding: 2px 5px;
-            margin-right: 5px; 
+            padding-left: 19px;
+            padding-right: 19px;
     
         }
     }
@@ -219,61 +217,57 @@
            }
     
         }
+   
     #login:hover {
         background-color: #337ab7;
     }
     
-    
-    #logout {
+#register {
         background-color: #5a5a5a;
         border: none;
-        color: white;
-        width: 100%;
-        padding: 2px;
-        margin: 1px;
-        height: 40px;
         text-align: center;
         text-decoration: none;
-        font-size: 16px;
         cursor: pointer;
         border-radius: 5px;
-    }
-    @media(min-width:768px){
-        #logout{
-            width:auto;
-            font-size: 14px;
-            height: auto;
-            padding: 2px 5px;
-            margin-right: 5px;
-            
-        }
-    }
-    @media(min-width:1024px){
-        #logout {
-          
-            font-size: 17px;
-           }
-        }
-    
-    #logout:hover {
-        background-color: #337ab7; 
+        margin-top: 5px;
     }
     
+    @media(max-width: 425px) {
+        #register{
+            width: 100%;
+            height: 30px;
+        }
+    }
+    
+    #register a {
+        color: white;
+        text-decoration: none;
+        padding: 7px;
+        font-weight: normal;
+        font-size: 16px;
+    }
+    
+    #register:hover {
+        background-color: #337ab7;
+    }    
+  
 /*content*/
 
 span {
    /*font-weight:bold;*/
    color: #5a5a5a;
+   /*line-height: 20px;*/
   
 }
 p {
     color: #5a5a5a;
-    
 }
+
 #titleMovie {
     font-family: 'Roboto Slab', serif;
     font-size: 20px;
     font-weight: bold;
+    line-height: 20px;
     
     }
 
