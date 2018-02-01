@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Georgia, serif;;
+    font-family: Georgia, serif;
 }
 
 html, body {
@@ -358,8 +358,6 @@ a .movie-item{
         width: 100%;
         align-items: center;
         justify-content: space-between;
-        
-    
     }
     
     @media(min-width:768px){
