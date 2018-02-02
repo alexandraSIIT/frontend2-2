@@ -666,8 +666,25 @@ iframe {
     width: 140px;
     height: 220px;
 }
+
+
 .img-movie:hover{
     cursor: pointer;
+    /*box-shadow: 0 6px 20px 0 #706f6f, 0 6px 20px 0 #706f6f;*/
+    animation:showBorder 1s ease  1 normal forwards;
+}
+
+@keyframes showBorder{
+    0%{
+       box-shadow: 0 1px 4px 0 #706f6f, 0 1px 4px 0 #706f6f;
+       border-radius:2px;
+       transform: scale(1)
+    }
+    100%{
+       box-shadow: 0 6px 20px 0 #706f6f, 0 6px 20px 0 #706f6f;
+       border-radius:10px;
+       transform: scale(1.1)
+    }
 }
 
 @media(max-width: 1024px) {
