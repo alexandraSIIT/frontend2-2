@@ -5,9 +5,23 @@ $(document).ready(onHtmlLoaded);
 function onHtmlLoaded() {
     
     checkLoginStatus();
+    
     displayButtonForUserLogged();
+    
     getMovies();
     
+    //handles click on the pages
+    clickHandler();
+    
+    //search bar functionality
+    searchMovies();
+    
+    //display data (from a hardcoded arary) into a predefined div tag.
+    displayAutors();
+}
+
+function clickHandler() {
+
     // delete Movie - attach a delegated event handler
     //we are getting the id from the parent div of the clicked delete button
     $("body").on( "click", "#delete", function(event) {
@@ -26,11 +40,12 @@ function onHtmlLoaded() {
         window.location.href="addMovie.html";
     });
     
-    // login, logout buttons;    
+    // login button;    
     $('#login').click( () => {
         window.location.href = 'login.html';
     });
     
+    //when clicked, redirects to home.html and deletes the cookies for logged user
     $('#logout').click( () => {
         //first we check to see if the user is actualy logged
         const isUserLogged = Cookie.findLoggedUserToken();        
@@ -46,18 +61,12 @@ function onHtmlLoaded() {
         else {
             alert('You are not logged in');
         }
-    });
+    });    
     
-    //search bar functionality
-    searchMovies();
-    
-    //function for toggle nav-bar
-    var togglebtn=$(".toggle-icon");
-    togglebtn.on("click", function(){
-        $("#toggle-nav").toggleClass("nav-bar-show");
-    });
-
-    displayAutors();
+    //this is visible only at small resolution; it toggles the menu.
+    $(".toggle-icon").click( () => {
+            $("#toggle-nav").toggleClass("nav-bar-show");
+    });    
 }
 
 function getMovies() {
@@ -71,7 +80,6 @@ function getMovies() {
         });
 }
 
-
 //first parameter contains the data, second one contains the location where we want the data to be written
 function displayMovies(data, elementId) {
     
@@ -79,7 +87,6 @@ function displayMovies(data, elementId) {
     var content = document.getElementById(elementId);
     
     if (data.length > 0) {
-        console.log(data);
         for (var i = 0; i < data.length; i++) {
             
             var movieItem = document.createElement("section");
