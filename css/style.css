@@ -666,6 +666,9 @@ iframe {
     width: 140px;
     height: 220px;
 }
+.img-movie:hover{
+    cursor: pointer;
+}
 
 @media(max-width: 1024px) {
     .img-movie {

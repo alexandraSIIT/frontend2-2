@@ -34,6 +34,13 @@ function clickHandler() {
                 deleteMovieItem(parentId);    
             });
     });
+    // the cliked img open the miviedetails page
+    $("body").on("click",".img-movie",function(e){
+        
+      const id=$(this).closest(".flex-container")[0].id;
+      window.location.href="movieDetails.html?movieId="+id;
+     
+    });
     
     //add movie button
     $("#add-movie").click(() => {
@@ -108,7 +115,8 @@ function displayMovies(data, elementId) {
                 moviePoster.setAttribute('src', data[i].poster);
                 
             moviePoster.className = 'img-movie';
-            moviePoster.innerHTML = data[i].poster;
+            
+            // moviePoster.innerHTML = data[i].poster; 
             
             var divTitle = document.createElement('div');
             divTitle.className = 'title';
