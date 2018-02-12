@@ -193,89 +193,91 @@ function displayButtonForUserLogged() {
 }
 
 function searchMovies() {
-             const movieUrl = "https://ancient-caverns-16784.herokuapp.com";
+    
     
              $('[type="search"]').keyup( function (){
               if(document.getElementById('filmNameOrType').value == ""){
-                const resultsContainer = $('#resultsContainer');
+                var resultsContainer = $('#resultsContainer');
                 resultsContainer.empty();
                }
              });
              
-             $('#searchBtn').click(function(e){
-             e.preventDefault();
-             searchFilm();
-             });
-    
-             $('#filmNameOrType').keypress(function (e) {
-             if (e.which == 13 || event.keyCode == 13) {
-             e.preventDefault();
-             searchFilm();
-                }
-             }); 
-             
-             $(window).click(function() {
-                const resultsContainer = $('#resultsContainer');
+              $(window).click(function() {
+                var resultsContainer = $('#resultsContainer');
                  resultsContainer.empty();
                });
-  
+             
+             $('#searchBtn').click(function(e){
+                  e.preventDefault();
+                   var movielist      = new MoviesList();
+                   var searchBy   = $("#select option:selected").text();
+                   var searchData = $("#filmNameOrType").val();
+        
+                     movielist.searchMovies(searchBy, searchData)
+                     .then(() => {
+                      displayResultsList(movielist, "resultsContainer");
+                      })
+                      .catch(reason => {
+                      alert(reason.responseJSON.message);
+                      });
+                     });
     
-        function searchFilm(){
-             let searchData = document.getElementById("filmNameOrType").value;
-             let queryToSearch = document.getElementsByName("searchBy");
-                 for (var i = 0, length = queryToSearch.length; i < length; i++) {
-                  if(queryToSearch[i].selected == true){
-                      var searchBy = queryToSearch[i].value;
+             $('#filmNameOrType').keypress(function (e) {
+                 if (e.which == 13 || event.keyCode == 13) {
+                  e.preventDefault();
+                    var movielist      = new MoviesList();
+                    var searchBy   = $("#select option:selected").text();
+                    var searchData = $("#filmNameOrType").val();
+        
+                     movielist.searchMovies(searchBy, searchData)
+                     .then(() => {
+                      displayResultsList(movielist, "resultsContainer");
+                      })
+                      .catch(reason => {
+                      alert(reason.responseJSON.message);
+                      });
                   }
-    		    }
-    
-            return $.ajax({
-                  url: movieUrl + "/movies?" +  searchBy + "=^" + searchData,
-                  method: 'GET'
-                  }).then(displayResultsList)
-                  .catch(errorDisplay);
-        }
-    
-        function displayResultsList (response){
-             if(response.results.length == 0){
+             }); 
+             
+           
+  
+        function displayResultsList (movielist){
+             if(movielist.model.length == 0){
               displayError();
              }
              else {
-             const resultsContainer = $('#resultsContainer');
+             
+             var resultsContainer = $('#resultsContainer');
              $('#resultsContainer').removeClass("hiddenObj");
-               for(var i=0; i<response.results.length; i++){
-               let movieFound = response.results[i];
-               movieFound.Id = response.results[i]._id;
-               if(movieFound.Poster === 'N/A') {
-                   movieFound.Poster = '../pages/resources/missing.jpg';
-               }
-               let htmlMovieItem =  '<div class="movie-item">' +
-                                        '<img class="moviePic" src=' + movieFound.Poster + '>' +
-                                        '<a href=movieDetails.html?movieId=' + movieFound.Id + '>' + movieFound.Title + '</a>' +
-                                    '</div>';
-              resultsContainer.append(htmlMovieItem);
-               }
-             }
+             
+               
+               for(var i=0; i<movielist.model.length; i++){
+                       
+                           
+                           if(movielist.model[i].poster === 'N/A') {
+                            movielist.model[i].poster = '../pages/resources/missing.jpg';
+                            }
+                       
+                        var htmlMovieItem =  '<div class="movie-item">' +
+                                             '<img class="moviePic" src=' +   movielist.model[i].poster + '>' +
+                                             '<a href=movieDetails.html?movieId=' +  movielist.model[i].id + '>' +  movielist.model[i].title + '</a>' +
+                                              '</div>';
+                         resultsContainer.append(htmlMovieItem);
+                        
+                }
+            }
         }
       
-        function errorDisplay(response){
-              const resultsContainer = $('#resultsContainer');
-              let errorMessage =  '<div class="movie-item">' +
-                                  '<p>' + "Sorry, something went wrong" + '</p>' +
-                                  '</div>';
-              resultsContainer.append(errorMessage);
-              $('#resultsContainer').removeClass("hiddenObj");
-        }
          
         function displayError (response){
-              const resultsContainer = $('#resultsContainer');
-              let errorMessageText =  '<div class="movie-item">' +
-                                      '<p>' + " Sorry,  we could not find a match for your search item! " + '</p>' +
+              var resultsContainer = $('#resultsContainer');
+              var errorMessageText =  '<div class="movie-item">' +
+                                      '<p>' + " Sorry,  we couldn't find a match! " + '</p>' +
                                       '</div>';
               resultsContainer.append(errorMessageText);
               $('#resultsContainer').removeClass("hiddenObj");
         }
-
+    
 }
 
 function displayAutors() {
